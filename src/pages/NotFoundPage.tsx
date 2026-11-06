@@ -20,7 +20,7 @@ export const NotFoundPage: React.FC = () => {
       <div className="flex items-center justify-center gap-3 pt-4">
         <Link
           to="/"
-          className="inline-flex items-center gap-1.5 px-4 py-2 rounded border border-black/15 dark:border-white/15 text-black dark:text-white hover:bg-sand-100 dark:hover:bg-dark-800 transition-colors"
+          className="inline-flex items-center gap-1.5 px-4 py-2 rounded border border-black/15 dark:border-white/15 text-black dark:text-white hover:bg-sand-100 dark:hover:bg-carbon-800 transition-colors"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>Overview</span>

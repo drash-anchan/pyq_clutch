@@ -13,7 +13,7 @@ export const Badge: React.FC<BadgeProps> = ({
   className = '',
 }) => {
   const variantStyles = {
-    sand: 'bg-sand-100 dark:bg-dark-800 text-sand-800 dark:text-sand-200 border-sand-300 dark:border-sand-700',
+    sand: 'bg-sand-100 dark:bg-carbon-800 text-sand-800 dark:text-sand-200 border-sand-300 dark:border-carbon-700',
     neutral: 'bg-black text-white dark:bg-white dark:text-black border-transparent',
     outline: 'bg-transparent text-black dark:text-white border-black/20 dark:border-white/20',
   };

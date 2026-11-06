@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Archive, Github, Search, Menu, X, ExternalLink } from 'lucide-react';
+import { Archive, Github, Search, Menu, X, ExternalLink, Sun, Moon, Laptop } from 'lucide-react';
+import { useTheme } from '../../context/ThemeContext';
 import { ThemeToggle } from '../common/ThemeToggle';
 import { ARCHIVE_METADATA } from '../../data/pyqs';
 
@@ -8,6 +9,7 @@ export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { preference, setPreference } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -88,7 +90,7 @@ export const Navbar: React.FC = () => {
         </nav>
 
         {/* Right Suite */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           <Link
             to="/semester-3/endsem"
             title="Search papers"
@@ -113,7 +115,7 @@ export const Navbar: React.FC = () => {
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-1.5 rounded-lg border border-black/10 dark:border-white/10 text-black dark:text-white"
+            className="md:hidden w-9 h-9 rounded-lg border border-black/10 dark:border-white/10 bg-sand-100/60 dark:bg-carbon-800/80 hover:bg-sand-200 dark:hover:bg-carbon-700 text-black dark:text-white flex items-center justify-center transition-all duration-200 shadow-sm shrink-0"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
@@ -152,6 +154,46 @@ export const Navbar: React.FC = () => {
             <span>GitHub Contribution</span>
             <ExternalLink className="w-3.5 h-3.5" />
           </a>
+
+          {/* Theme preference options inside mobile drawer */}
+          <div className="pt-3 border-t border-black/10 dark:border-white/10 flex items-center justify-between">
+            <span className="text-sand-600 dark:text-sand-400">Appearance</span>
+            <div className="inline-flex items-center p-1 rounded-lg border border-black/10 dark:border-white/10 bg-sand-100/80 dark:bg-carbon-900 gap-1">
+              <button
+                type="button"
+                onClick={() => setPreference('light')}
+                className={`px-2 py-1 rounded flex items-center gap-1 text-[11px] transition-colors ${
+                  preference === 'light'
+                    ? 'bg-white dark:bg-carbon-750 text-black dark:text-white font-semibold shadow-sm'
+                    : 'text-sand-600 dark:text-sand-400 hover:text-black dark:hover:text-white'
+                }`}
+              >
+                <Sun className="w-3 h-3" /> Light
+              </button>
+              <button
+                type="button"
+                onClick={() => setPreference('dark')}
+                className={`px-2 py-1 rounded flex items-center gap-1 text-[11px] transition-colors ${
+                  preference === 'dark'
+                    ? 'bg-white dark:bg-carbon-750 text-black dark:text-white font-semibold shadow-sm'
+                    : 'text-sand-600 dark:text-sand-400 hover:text-black dark:hover:text-white'
+                }`}
+              >
+                <Moon className="w-3 h-3" /> Dark
+              </button>
+              <button
+                type="button"
+                onClick={() => setPreference('system')}
+                className={`px-2 py-1 rounded flex items-center gap-1 text-[11px] transition-colors ${
+                  preference === 'system'
+                    ? 'bg-white dark:bg-carbon-750 text-black dark:text-white font-semibold shadow-sm'
+                    : 'text-sand-600 dark:text-sand-400 hover:text-black dark:hover:text-white'
+                }`}
+              >
+                <Laptop className="w-3 h-3" /> Auto
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </header>
