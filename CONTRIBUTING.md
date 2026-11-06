@@ -4,7 +4,7 @@ Thank you for your interest in contributing to **PYQ Vault** (`drash-anchan/pyq_
 
 ---
 
-## ⚡ Strict Archive Scope (Non-Negotiable)
+## Strict Archive Scope (Non-Negotiable)
 
 To maintain academic precision, we enforce strict scope boundaries. We **only** accept question papers matching:
 
@@ -23,7 +23,7 @@ To maintain academic precision, we enforce strict scope boundaries. We **only** 
 
 ---
 
-## 🔒 Owner-Only Control & Governance
+## Owner-Only Control & Governance
 
 - **Read-Only Live Archive**: The deployed PYQ Vault website is strictly public and read-only.
 - **Sole Maintainer**: All additions, modifications, and pull request approvals are manually handled exclusively by repository owner **[@drash-anchan](https://github.com/drash-anchan)**.
@@ -31,7 +31,7 @@ To maintain academic precision, we enforce strict scope boundaries. We **only** 
 
 ---
 
-## 🚀 Contribution Pathways
+## Contribution Pathways
 
 We offer two straightforward ways to submit missing question papers:
 
