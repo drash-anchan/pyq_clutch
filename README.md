@@ -1,4 +1,4 @@
-# PYQ Vault — MIT Manipal CSE 3rd Semester Endsem Archive
+# PYQ Clutch — MIT Manipal CSE 3rd Semester Endsem Archive
 
 <p align="center">
   <img src="public/cat-logo.webp" alt="PYQ Vault Mascot" width="96" height="96" style="border-radius: 50%;" />
@@ -25,7 +25,7 @@
 
 ---
 
-## ⚡ Strict Project Scope (Non-Negotiable)
+##  Strict Project Scope (Non-Negotiable)
 
 - **INSTITUTE**: Manipal Institute of Technology (MIT), MAHE Manipal
 - **BRANCH**: Computer Science & Engineering (CSE) ONLY
@@ -42,7 +42,7 @@
 
 ---
 
-## 🌐 Website & Deployment
+##  Website & Deployment
 
 The official deployed website link will be added here upon production hosting:
 - **Production URL**: *(Deployment link pending configuration)*
@@ -50,7 +50,7 @@ The official deployed website link will be added here upon production hosting:
 
 ---
 
-## 📖 About the Project
+##  About the Project
 
 Engineering students at MIT Manipal frequently lose crucial study time hunting through disorganized Google Drives, Telegram channels, and scattered WhatsApp PDFs when studying for high-stakes 3rd-semester Endsem exams. 
 
@@ -62,7 +62,7 @@ Engineering students at MIT Manipal frequently lose crucial study time hunting t
 
 ---
 
-## ✨ Implemented Features
+##  Implemented Features
 
 - **Subject-First Navigation**: Clean subject portals that preserve independent examination year timelines.
 - **Multiple Paper Variants**: Clearly distinguished **Regular** and **Makeup** question papers.
@@ -78,7 +78,7 @@ Engineering students at MIT Manipal frequently lose crucial study time hunting t
 
 ---
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 | Category | Technology | Purpose |
 |---|---|---|
@@ -95,7 +95,7 @@ Engineering students at MIT Manipal frequently lose crucial study time hunting t
 
 ---
 
-## 📂 Archive Structure
+##  Archive Structure
 
 The archive strictly adheres to the following navigation hierarchy:
 ```
@@ -123,7 +123,7 @@ Homepage
 
 ---
 
-## 🚀 Installation & Local Development
+##  Installation & Local Development
 
 Follow these steps to run PYQ Vault locally:
 
@@ -147,7 +147,7 @@ npm run preview
 
 ---
 
-## 📁 Project Directory Tree
+##  Project Directory Tree
 
 ```
 pyq_clutch/
@@ -209,7 +209,7 @@ pyq_clutch/
 
 ---
 
-## ➕ Adding New Question Papers (Maintainer Guide)
+##  Adding New Question Papers (Maintainer Guide)
 
 To add newly acquired question papers to the archive:
 1. Optimize the PDF and verify all pages are legible and upright.
@@ -237,19 +237,19 @@ To add newly acquired question papers to the archive:
 
 ---
 
-## 🤝 Open-Source Contributions
+##  Open-Source Contributions
 
 We welcome contributions from MIT Manipal students and alumni! See [CONTRIBUTING.md](CONTRIBUTING.md) for full instructions.
 
 - **Developer Workflow**: Fork [https://github.com/drash-anchan/pyq_clutch](https://github.com/drash-anchan/pyq_clutch), create a branch, add the paper PDF and metadata, and open a Pull Request.
 - **Direct Email Pathway**: No Git? Email question papers directly to [`hasraadknowsyou@gmail.com`](mailto:hasraadknowsyou@gmail.com).
 
-> 🔒 **Owner-Only Moderation**: All contributions are proposals. The live archive is strictly read-only and maintained solely by **[@drash-anchan](https://github.com/drash-anchan)**. Pull Requests and emailed files are manually verified before merging.
+>  **Owner-Only Moderation**: All contributions are proposals. The live archive is strictly read-only and maintained solely by **[@drash-anchan](https://github.com/drash-anchan)**. Pull Requests and emailed files are manually verified before merging.
 
 ---
 
 <!-- ANALYTICS:START -->
-### 📊 PYQ Vault — Website Analytics
+###  PYQ Vault — Website Analytics
 
 | Metric | Last 30 Days |
 |---|---:|
@@ -267,7 +267,7 @@ We welcome contributions from MIT Manipal students and alumni! See [CONTRIBUTING
 *Reporting period: Last 30 days*
 <!-- ANALYTICS:END -->
 
-### 🔒 Analytics Philosophy & Security
+###  Analytics Philosophy & Security
 - **Zero Frontend UI**: The website frontend displays **no** visitor counters, pageview numbers, or telemetry badges.
 - **Privacy-First**: Umami operates cookieless without gathering personally identifiable information (PII).
 - **Automated Workflow**: `.github/workflows/update-analytics.yml` runs daily via GitHub Actions using secrets `UMAMI_API_KEY` and `UMAMI_WEBSITE_ID`.
@@ -275,7 +275,7 @@ We welcome contributions from MIT Manipal students and alumni! See [CONTRIBUTING
 
 ---
 
-## 📜 License & Intellectual Property Notice
+##  License & Intellectual Property Notice
 
 This software is released under the **[MIT License](LICENSE)**.
 
