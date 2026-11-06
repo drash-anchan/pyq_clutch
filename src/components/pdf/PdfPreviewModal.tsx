@@ -1,7 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { X, Download, Share2, Sparkles, Loader2, ShieldCheck, FileText, Calendar } from 'lucide-react';
+import { 
+  X, 
+  Download, 
+  Share2, 
+  Sparkles, 
+  ExternalLink, 
+  ShieldCheck, 
+  FileText, 
+  Calendar,
+  Layers,
+  Eye
+} from 'lucide-react';
 import { ArchivePaper } from '../../types';
-import { getEphemeralPaperBlob, revokeEphemeralBlob, downloadSecurePaper, getPaperShareUrl } from '../../utils/vaultService';
+import { downloadSecurePaper, getPaperShareUrl } from '../../utils/vaultService';
 import { copyToClipboard, triggerAcademicConfetti } from '../../utils/downloadHelper';
 
 interface PdfPreviewModalProps {
@@ -10,36 +21,30 @@ interface PdfPreviewModalProps {
 }
 
 export const PdfPreviewModal: React.FC<PdfPreviewModalProps> = ({ paper, onClose }) => {
-  const [blobUrl, setBlobUrl] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
   const [copied, setCopied] = useState(false);
   const [downloading, setDownloading] = useState(false);
+  const [mobileTab, setMobileTab] = useState<'paper' | 'details'>('paper');
+  const [useGoogleViewer, setUseGoogleViewer] = useState(false);
+
+  // Detect mobile device
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return window.innerWidth < 1024 || /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+  });
 
   useEffect(() => {
-    let currentBlob: string | null = null;
-    let isCancelled = false;
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024 || /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent));
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
+  useEffect(() => {
     if (paper) {
-      setLoading(true);
       document.body.style.overflow = 'hidden';
-
-      getEphemeralPaperBlob(paper)
-        .then((url) => {
-          if (!isCancelled) {
-            currentBlob = url;
-            setBlobUrl(url);
-            setLoading(false);
-          } else {
-            revokeEphemeralBlob(url);
-          }
-        })
-        .catch(() => {
-          if (!isCancelled) {
-            setLoading(false);
-          }
-        });
-    } else {
-      setBlobUrl(null);
+      setMobileTab('paper');
+      setUseGoogleViewer(false);
     }
 
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -50,18 +55,21 @@ export const PdfPreviewModal: React.FC<PdfPreviewModalProps> = ({ paper, onClose
     window.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      isCancelled = true;
       document.body.style.overflow = 'unset';
       window.removeEventListener('keydown', handleKeyDown);
-      if (currentBlob) {
-        revokeEphemeralBlob(currentBlob);
-      }
     };
   }, [paper, onClose]);
 
   if (!paper) return null;
 
   const isMakeup = paper.variant === 'Makeup';
+  const directPdfUrl = paper.fileUrl;
+  const fullPublicUrl = typeof window !== 'undefined' ? (window.location.origin + directPdfUrl) : directPdfUrl;
+  const googleDocsViewerUrl = 'https://docs.google.com/viewer?url=' + encodeURIComponent(fullPublicUrl) + '&embedded=true';
+
+  const handleOpenFullscreen = () => {
+    window.open(directPdfUrl, '_blank', 'noopener,noreferrer');
+  };
 
   const handleDownload = async () => {
     if (downloading) return;
@@ -89,99 +97,220 @@ export const PdfPreviewModal: React.FC<PdfPreviewModalProps> = ({ paper, onClose
     <div
       role="dialog"
       aria-modal="true"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 lg:p-6 bg-black/85 backdrop-blur-md"
     >
+      {/* Backdrop */}
       <div className="absolute inset-0" onClick={onClose} aria-hidden="true" />
 
-      <div className="theme-card relative z-10 w-full max-w-5xl h-[88vh] bg-white dark:bg-[#0F1219] border border-black/15 dark:border-white/15 rounded-xl shadow-2xl flex flex-col overflow-hidden font-mono text-xs text-black dark:text-white">
+      {/* Main Modal Dialog */}
+      <div className="theme-card relative z-10 w-full max-w-5xl h-[94vh] sm:h-[88vh] bg-white dark:bg-[#0F1219] border border-black/15 dark:border-white/15 rounded-xl shadow-2xl flex flex-col overflow-hidden font-mono text-xs text-black dark:text-white">
         
         {/* Top Header Bar */}
-        <div className="px-6 py-4 border-b border-black/10 dark:border-white/10 flex items-center justify-between gap-4 bg-sand-50 dark:bg-[#141824] text-black dark:text-white">
-          <div className="space-y-0.5 min-w-0">
-            <div className="flex items-center gap-2 text-[11px] text-sand-600 dark:text-sand-400">
-              <span className="font-bold text-black dark:text-white">{paper.subjectName}</span>
+        <div className="px-3.5 sm:px-6 py-3 border-b border-black/10 dark:border-white/10 flex items-center justify-between gap-2 sm:gap-4 bg-sand-50 dark:bg-[#141824] text-black dark:text-white shrink-0">
+          <div className="space-y-0.5 min-w-0 pr-1">
+            <div className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] text-sand-600 dark:text-sand-400">
+              <span className="font-bold text-black dark:text-white truncate max-w-[120px] sm:max-w-none">{paper.subjectName}</span>
               <span>•</span>
               <span className="font-semibold">{paper.subjectCode}</span>
               <span>•</span>
-              <span>{paper.year} ENDSEM</span>
+              <span>{paper.year}</span>
               {isMakeup && (
-                <span className="ml-1 font-bold text-[10px] tracking-wider uppercase px-2 py-0.5 rounded bg-black text-white dark:bg-white dark:text-black border border-black dark:border-white flex items-center gap-1">
+                <span className="font-bold text-[9px] sm:text-[10px] tracking-wider uppercase px-1.5 py-0.5 rounded bg-black text-white dark:bg-white dark:text-black border border-black dark:border-white flex items-center gap-0.5">
                   <Sparkles className="w-2.5 h-2.5" />
                   <span>MAKEUP</span>
                 </span>
               )}
             </div>
-            <h2 className="text-base font-bold font-display text-black dark:text-white truncate max-w-lg">
+            <h2 className="text-xs sm:text-base font-bold font-display text-black dark:text-white truncate">
               {paper.title}
             </h2>
           </div>
 
           {/* Action Buttons */}
-          <div className="flex items-center gap-2 shrink-0">
+          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+            {/* Open Fullscreen in Native Browser (Guaranteed Mobile Compatibility) */}
+            <button
+              type="button"
+              onClick={handleOpenFullscreen}
+              title="Open full PDF in phone or browser viewer"
+              className="px-2.5 sm:px-3 py-1.5 rounded border border-black/15 dark:border-white/20 text-black dark:text-white hover:bg-sand-100 dark:hover:bg-[#1A1D28] transition-colors flex items-center gap-1 font-semibold text-[11px] sm:text-xs"
+            >
+              <ExternalLink className="w-3.5 h-3.5 text-sand-600 dark:text-sand-400" />
+              <span className="hidden sm:inline">Open Fullscreen</span>
+              <span className="sm:hidden">Open</span>
+            </button>
+
+            {/* Share (hidden on tiny screens) */}
             <button
               type="button"
               onClick={handleCopyShareLink}
-              className="px-3 py-1.5 rounded border border-black/15 dark:border-white/20 text-black dark:text-white hover:bg-sand-100 dark:hover:bg-[#1A1D28] transition-colors flex items-center gap-1.5"
+              title="Copy share link"
+              className="hidden sm:flex px-3 py-1.5 rounded border border-black/15 dark:border-white/20 text-black dark:text-white hover:bg-sand-100 dark:hover:bg-[#1A1D28] transition-colors items-center gap-1.5 text-xs"
             >
               <Share2 className="w-3.5 h-3.5 text-sand-500" />
-              <span>{copied ? 'Link Copied' : 'Share'}</span>
+              <span>{copied ? 'Copied' : 'Share'}</span>
             </button>
 
+            {/* Download */}
             <button
               type="button"
               onClick={handleDownload}
               disabled={downloading}
-              className="px-3.5 py-1.5 rounded bg-black text-white dark:bg-white dark:text-black font-semibold hover:opacity-90 transition-opacity flex items-center gap-1.5 disabled:opacity-50 shadow-sm border border-black dark:border-white"
+              className="px-2.5 sm:px-3.5 py-1.5 rounded bg-black text-white dark:bg-white dark:text-black font-semibold hover:opacity-90 transition-opacity flex items-center gap-1 sm:gap-1.5 disabled:opacity-50 shadow-sm border border-black dark:border-white text-[11px] sm:text-xs"
             >
               <Download className="w-3.5 h-3.5" />
-              <span>{downloading ? 'Decrypting...' : 'Download ↓'}</span>
+              <span className="hidden sm:inline">{downloading ? 'Decrypting...' : 'Download ↓'}</span>
+              <span className="sm:hidden">{downloading ? '...' : 'PDF ↓'}</span>
             </button>
 
+            {/* Close */}
             <button
               type="button"
               onClick={onClose}
-              className="p-1.5 rounded text-sand-500 hover:text-black dark:hover:text-white transition-colors"
-              aria-label="Close"
+              className="p-1.5 rounded-lg border border-transparent hover:border-black/10 dark:hover:border-white/10 text-sand-500 hover:text-black dark:hover:text-white transition-colors"
+              aria-label="Close modal"
             >
               <X className="w-4 h-4" />
             </button>
           </div>
         </div>
 
+        {/* Mobile View Toggle Bar (Only shown on mobile / tablets) */}
+        <div className="lg:hidden flex border-b border-black/10 dark:border-white/10 bg-sand-50/80 dark:bg-[#11141E] shrink-0 text-xs">
+          <button
+            type="button"
+            onClick={() => setMobileTab('paper')}
+            className={`flex-1 py-2.5 text-center font-bold flex items-center justify-center gap-1.5 border-b-2 transition-all ${
+              mobileTab === 'paper'
+                ? 'border-black dark:border-white text-black dark:text-white bg-sand-100/60 dark:bg-carbon-800/80'
+                : 'border-transparent text-sand-600 dark:text-sand-400 hover:text-black dark:hover:text-white'
+            }`}
+          >
+            <FileText className="w-3.5 h-3.5" />
+            <span>Question Paper</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setMobileTab('details')}
+            className={`flex-1 py-2.5 text-center font-bold flex items-center justify-center gap-1.5 border-b-2 transition-all ${
+              mobileTab === 'details'
+                ? 'border-black dark:border-white text-black dark:text-white bg-sand-100/60 dark:bg-carbon-800/80'
+                : 'border-transparent text-sand-600 dark:text-sand-400 hover:text-black dark:hover:text-white'
+            }`}
+          >
+            <ShieldCheck className="w-3.5 h-3.5" />
+            <span>Exam Details</span>
+          </button>
+        </div>
+
         {/* Content Viewer Layout */}
         <div className="flex-1 flex flex-col lg:flex-row overflow-hidden bg-sand-100/40 dark:bg-[#080A0F]">
           
-          {/* Main PDF Stream Viewer Area */}
-          <div className="flex-1 h-full relative flex items-center justify-center">
-            {loading ? (
-              <div className="text-center space-y-3 font-mono">
-                <Loader2 className="w-8 h-8 animate-spin text-sand-600 dark:text-sand-300 mx-auto" />
-                <div className="text-xs text-sand-700 dark:text-sand-300">
-                  Streaming secure document...
+          {/* Main Document Viewer Area */}
+          <div className={`flex-1 h-full overflow-hidden flex flex-col ${
+            mobileTab === 'details' ? 'hidden lg:flex' : 'flex'
+          }`}>
+            
+            {/* Mobile Document Container */}
+            {isMobile ? (
+              <div className="flex-1 overflow-y-auto p-3 sm:p-5 flex flex-col items-center bg-sand-100/60 dark:bg-[#06070B] space-y-3">
+                
+                {/* Top Action Callout Banner */}
+                <div className="w-full max-w-xl p-3 rounded-lg bg-sand-50 dark:bg-[#121622] border border-black/10 dark:border-white/10 shadow-sm flex items-center justify-between gap-3">
+                  <div className="space-y-0.5 min-w-0">
+                    <div className="font-bold text-[11px] text-black dark:text-white flex items-center gap-1.5 truncate">
+                      <FileText className="w-3.5 h-3.5 text-sand-600 dark:text-sand-400 shrink-0" />
+                      <span className="truncate">MIT Manipal Official PDF ({paper.pageCount} Pages)</span>
+                    </div>
+                    <div className="text-[10px] text-sand-600 dark:text-sand-400">
+                      Tap below to open full paper in native mobile reader
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={handleOpenFullscreen}
+                    className="px-3 py-1.5 rounded-md bg-black text-white dark:bg-white dark:text-black font-semibold text-xs flex items-center gap-1.5 shadow shrink-0 active:scale-95 transition-transform"
+                  >
+                    <span>Open</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </button>
                 </div>
+
+                {/* Inline Google Docs Viewer Option if user toggles it */}
+                {useGoogleViewer ? (
+                  <div className="w-full max-w-xl flex-1 min-h-[460px] rounded-lg overflow-hidden border border-black/15 dark:border-white/15 shadow-lg bg-white dark:bg-[#0F1219]">
+                    <iframe
+                      src={googleDocsViewerUrl}
+                      title={"Google Docs Viewer: " + paper.title}
+                      className="w-full h-full min-h-[460px] border-none"
+                    />
+                  </div>
+                ) : (
+                  /* High-Resolution Document Thumbnail Preview */
+                  <div
+                    onClick={handleOpenFullscreen}
+                    className="relative w-full max-w-xl rounded-lg overflow-hidden border border-black/15 dark:border-white/15 shadow-xl bg-white dark:bg-[#0B0D12] cursor-pointer group"
+                  >
+                    <img
+                      src={paper.thumbnailUrl}
+                      alt={paper.title}
+                      className="w-full h-auto object-contain select-none"
+                    />
+
+                    {/* Tap overlay badge */}
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity backdrop-blur-xs">
+                      <span className="px-4 py-2 rounded-lg bg-white text-black font-bold text-xs shadow-lg flex items-center gap-1.5">
+                        <ExternalLink className="w-4 h-4" />
+                        <span>Tap to Open Full Document</span>
+                      </span>
+                    </div>
+
+                    <div className="absolute bottom-2 right-2 px-2 py-1 rounded bg-black/80 text-white text-[10px] flex items-center gap-1 backdrop-blur-xs">
+                      <Eye className="w-3 h-3 text-sand-300" />
+                      <span>Tap to read all {paper.pageCount} pages</span>
+                    </div>
+                  </div>
+                )}
+
+                {/* Secondary Mobile Actions */}
+                <div className="w-full max-w-xl flex flex-col sm:flex-row items-center gap-2 pt-1 pb-4">
+                  <button
+                    type="button"
+                    onClick={handleOpenFullscreen}
+                    className="w-full py-2.5 rounded-lg border border-black/15 dark:border-white/15 bg-white dark:bg-[#141824] text-black dark:text-white font-semibold text-xs flex items-center justify-center gap-1.5 shadow-sm active:scale-98 transition-all hover:bg-sand-50"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5 text-sand-600 dark:text-sand-400" />
+                    <span>Open Full PDF in Browser Viewer</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setUseGoogleViewer(!useGoogleViewer)}
+                    className="w-full py-2 rounded-lg text-sand-600 dark:text-sand-400 hover:text-black dark:hover:text-white text-[11px] flex items-center justify-center gap-1 transition-colors"
+                  >
+                    <Layers className="w-3.5 h-3.5" />
+                    <span>{useGoogleViewer ? 'Show Fast Preview Image' : 'Try Inline Web Viewer (Google Docs)'}</span>
+                  </button>
+                </div>
+
               </div>
-            ) : blobUrl ? (
-              <iframe
-                src={blobUrl + "#view=FitH"}
-                title={"Secure Vault: " + paper.title}
-                className="w-full h-full border-none"
-              />
             ) : (
-              <div className="text-center space-y-2 p-6 font-mono text-sand-600 dark:text-sand-400">
-                <div>Unable to open ephemeral paper stream.</div>
-                <button
-                  type="button"
-                  onClick={handleDownload}
-                  className="px-4 py-2 rounded bg-black text-white dark:bg-white dark:text-black text-xs font-semibold"
-                >
-                  Download Directly
-                </button>
+              /* Desktop Clean PDF Embed */
+              <div className="flex-1 h-full relative">
+                <iframe
+                  src={directPdfUrl + "#view=FitH"}
+                  title={"Secure Vault: " + paper.title}
+                  className="w-full h-full border-none"
+                />
               </div>
             )}
           </div>
 
-          {/* Right Information Panel */}
-          <div className="w-full lg:w-72 p-6 border-t lg:border-t-0 lg:border-l border-black/10 dark:border-white/10 bg-white dark:bg-[#0F1219] overflow-y-auto space-y-6 text-black dark:text-white">
+          {/* Right Information Panel (Always visible on desktop, tab-switched on mobile) */}
+          <div className={`w-full lg:w-72 p-4 sm:p-6 border-t lg:border-t-0 lg:border-l border-black/10 dark:border-white/10 bg-white dark:bg-[#0F1219] overflow-y-auto space-y-5 text-black dark:text-white ${
+            mobileTab === 'paper' ? 'hidden lg:block' : 'block'
+          }`}>
             
             {/* Vault Security Status */}
             <div className="p-3 rounded-lg border border-sand-300 dark:border-sand-700 bg-sand-50/60 dark:bg-[#141824] space-y-1">
@@ -194,12 +323,34 @@ export const PdfPreviewModal: React.FC<PdfPreviewModalProps> = ({ paper, onClose
               </p>
             </div>
 
-            {/* Examination Details */}
+            {/* Direct Open & Download in Details Panel */}
             <div className="space-y-2">
+              <button
+                type="button"
+                onClick={handleOpenFullscreen}
+                className="w-full py-2 rounded-lg bg-black text-white dark:bg-white dark:text-black font-semibold text-xs flex items-center justify-center gap-1.5 shadow active:scale-98 transition-all"
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+                <span>View Full PDF ↗</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={handleDownload}
+                disabled={downloading}
+                className="w-full py-2 rounded-lg border border-black/15 dark:border-white/20 text-black dark:text-white hover:bg-sand-100 dark:hover:bg-[#1A1D28] font-semibold text-xs flex items-center justify-center gap-1.5 transition-colors"
+              >
+                <Download className="w-3.5 h-3.5" />
+                <span>{downloading ? 'Decrypting...' : 'Download (' + paper.fileSize + ')'}</span>
+              </button>
+            </div>
+
+            {/* Examination Details */}
+            <div className="space-y-2 pt-2 border-t border-black/10 dark:border-white/10">
               <span className="text-[10px] uppercase text-sand-500 tracking-wider block font-bold">
                 Examination Details
               </span>
-              <div className="space-y-1.5 text-sand-700 dark:text-sand-300">
+              <div className="space-y-1.5 text-sand-700 dark:text-sand-300 text-[11px]">
                 <div className="flex justify-between">
                   <span>Subject:</span>
                   <span className="text-black dark:text-white font-semibold text-right max-w-[130px] truncate">{paper.subjectName}</span>
@@ -242,7 +393,7 @@ export const PdfPreviewModal: React.FC<PdfPreviewModalProps> = ({ paper, onClose
             </div>
 
             {/* Topics Covered */}
-            <div className="space-y-2">
+            <div className="space-y-2 pt-2 border-t border-black/10 dark:border-white/10">
               <span className="text-[10px] uppercase text-sand-500 tracking-wider block font-bold">
                 Key Topics Covered
               </span>
