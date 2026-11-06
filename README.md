@@ -45,7 +45,7 @@
 ##  Website & Deployment
 
 The official deployed website link will be added here upon production hosting:
-- **Production URL**: *(Deployment link pending configuration)*
+- **Production URL**: (https://pyqclutch.vercel.app/)
 - **GitHub Repository**: [https://github.com/drash-anchan/pyq_clutch](https://github.com/drash-anchan/pyq_clutch)
 
 ---
