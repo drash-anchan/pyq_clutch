@@ -1,0 +1,88 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 4 0 R /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 1511 >>
+stream
+BT
+/F1 18 Tf
+50 780 Td
+(MANIPAL INSTITUTE OF TECHNOLOGY) Tj
+/F1 12 Tf
+0 -22 Td
+(Manipal Academy of Higher Education, Manipal) Tj
+0 -18 Td
+(DEPARTMENT OF COMPUTER SCIENCE & ENGINEERING) Tj
+0 -18 Td
+(THIRD SEMESTER B.TECH. END SEMESTER EXAMINATION - 2022) Tj
+0 -24 Td
+/F2 14 Tf
+(CS 2104: DATA COMMUNICATION AND COMPUTER NETWORK) Tj
+/F1 10 Tf
+0 -18 Td
+(Branch: Computer Science & Engineering (CSE)  |  Credit: 4) Tj
+0 -15 Td
+(Time: 3 Hours  |  Max. Marks: 50) Tj
+0 -15 Td
+(Instructions: Answer ALL questions. Each question carries designated marks.) Tj
+0 -25 Td
+/F2 11 Tf
+(PART A) Tj
+/F1 10 Tf
+0 -18 Td
+(1. (a) Explain OSI 7-layer architecture vs TCP/IP protocol suite with PDU encapsulation. [5 Marks]) Tj
+0 -18 Td
+(1. (b) Compute CRC-16 checksum for given bit stream and explain polynomial error detection. [5 Marks]) Tj
+0 -22 Td
+/F2 11 Tf
+(PART B) Tj
+/F1 10 Tf
+0 -18 Td
+(2. (a) Analyze Go-Back-N and Selective Repeat ARQ sliding window protocols with sequence numbers. [5 Marks]) Tj
+0 -18 Td
+(2. (b) Explain IPv4 classless addressing, subnetting, CIDR prefix matching, and NAT traversal. [5 Marks]) Tj
+0 -22 Td
+/F2 11 Tf
+(PART C) Tj
+/F1 10 Tf
+0 -18 Td
+(3. (a) Compare Distance Vector Routing (Bellman-Ford count-to-infinity) and Link State (Dijkstra). [10 Marks]) Tj
+0 -22 Td
+/F2 11 Tf
+(PART D) Tj
+/F1 10 Tf
+0 -18 Td
+(4. (a) Explain TCP three-way handshake, connection teardown, and AIMD congestion control. [10 Marks]) Tj
+0 -35 Td
+/F1 9 Tf
+([END OF QUESTION PAPER - MIT MANIPAL CSE 3RD SEMESTER ARCHIVE]) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000001814 00000 n 
+0000001884 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+1959
+%%EOF

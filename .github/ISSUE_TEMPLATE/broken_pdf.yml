@@ -1,0 +1,19 @@
+name: ⚠️ Report a Broken or Incorrect Paper
+description: Report a corrupted PDF, incorrect metadata, or wrong answer paper
+title: "[ISSUE]: "
+labels: ["bug", "pdf-issue"]
+body:
+  - type: input
+    id: paper_title
+    attributes:
+      label: Paper Title & Subject
+      placeholder: e.g. Discrete Mathematical Structures 2024 Regular
+    validations:
+      required: true
+  - type: textarea
+    id: issue_description
+    attributes:
+      label: Describe the Problem
+      placeholder: e.g. Page 2 is rotated sideways / wrong course code listed / preview modal fails
+    validations:
+      required: true

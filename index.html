@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="MIT Manipal 3rd Semester Endsem Previous Year Question Papers (PYQs) Archive. Minimalist academic archive." />
+    <meta name="theme-color" content="#0B0D12" />
+    
+    <!-- MANDATORY: Declare support for both light and dark themes -->
+    <meta name="color-scheme" content="light dark" />
+
+    <!-- Google Fonts: Space Grotesk, Inter, JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Anti-FOUC Theme Initialization Script -->
+    <script>
+      (function() {
+        try {
+          const stored = localStorage.getItem('endsem_theme');
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          const theme = stored ? stored : (prefersDark ? 'dark' : 'light');
+          const root = document.documentElement;
+          if (theme === 'dark') {
+            root.classList.add('dark');
+            root.setAttribute('data-theme', 'dark');
+            document.querySelector('meta[name="color-scheme"]').content = 'dark';
+          } else {
+            root.classList.remove('dark');
+            root.setAttribute('data-theme', 'light');
+            document.querySelector('meta[name="color-scheme"]').content = 'light';
+          }
+        } catch (e) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+
+    <title>MIT Manipal — 3rd Sem Endsem Archive</title>
+  </head>
+  <body class="bg-[#FAF8F5] text-black dark:bg-[#08090C] dark:text-white transition-colors duration-200 antialiased overflow-x-hidden min-h-screen">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

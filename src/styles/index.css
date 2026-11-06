@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================================
+   DUAL-THEME CSS VARIABLES (BLACK, WHITE, LIGHT BROWN)
+   ========================================================================= */
+
+:root {
+  color-scheme: light dark;
+
+  /* Theme tokens */
+  --bg-page: #FAF8F5;
+  --bg-card: #FFFFFF;
+  --bg-card-subtle: #F3EFEA;
+  --border-card: rgba(0, 0, 0, 0.09);
+  --text-main: #000000;
+  --text-muted: #6D5B48;
+
+  /* Minimal scrollbar */
+  --scrollbar-track: light-dark(#F3EFEA, #0B0D12);
+  --scrollbar-thumb: light-dark(#C8B8A2, #32374A);
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  scrollbar-width: thin;
+}
+
+html.dark,
+.dark,
+:root:has(> head > meta[name="color-scheme"][content="dark"]),
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg-page: #08090C;
+  --bg-card: #0F1219;
+  --bg-card-subtle: #161A24;
+  --border-card: rgba(255, 255, 255, 0.12);
+  --text-main: #FFFFFF;
+  --text-muted: #C8B8A2;
+}
+
+/* Card background class that never fails */
+
+/* Form Controls: Force exact light/dark matching to active theme */
+input,
+select,
+textarea {
+  color-scheme: light !important;
+}
+
+html.dark input,
+html.dark select,
+html.dark textarea,
+.dark input,
+.dark select,
+.dark textarea {
+  color-scheme: dark !important;
+}
+
+.theme-card {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-card) !important;
+  color: var(--text-main) !important;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+  letter-spacing: -0.01em;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+}
+
+/* 3D Perspective primitives */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* Accessibility: prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

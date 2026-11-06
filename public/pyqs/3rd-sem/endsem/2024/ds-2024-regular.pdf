@@ -1,0 +1,72 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 4 0 R /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 1745 >>
+stream
+BT
+/F1 10 Tf
+50 790 Td
+14 TL
+/F2 16 Tf (MANIPAL ACADEMY OF HIGHER EDUCATION) Tj /F1 10 Tf T*
+/F2 14 Tf (THIRD SEMESTER B.TECH. DEGREE EXAMINATIONS - NOVEMBER 2024) Tj /F1 10 Tf T*
+/F2 12 Tf (SUBJECT: CS 2101 - DATA STRUCTURES) Tj /F1 10 Tf T*
+(Exam Date & Time: 25-Nov-2024  09:30 AM - 12:30 PM ) Tj T*
+(Branch: Computer Science & Engineering  CSE ) Tj T*
+(Marks: 50   |   Duration: 180 mins.) Tj T*
+(-----------------------------------------------------------------------------------------------) Tj T*
+/F2 12 Tf (1A  [5 Marks]) Tj /F1 10 Tf T*
+(Construct an AVL tree for keys: 15, 20, 24, 10, 13, 7, 30, 36, 25. Show rotations.) Tj T*
+T*
+/F2 12 Tf (1B  [3 Marks]) Tj /F1 10 Tf T*
+(Circular Queue implementation using fixed-size array with enqueue and dequeue bounds.) Tj T*
+T*
+/F2 12 Tf (2A  [5 Marks]) Tj /F1 10 Tf T*
+(Dijkstra single-source shortest path algorithm with priority queue implementation.) Tj T*
+T*
+/F2 12 Tf (2B  [4 Marks]) Tj /F1 10 Tf T*
+(QuickSort partition algorithm with random pivot selection and average-case analysis.) Tj T*
+T*
+/F2 12 Tf (3A  [5 Marks]) Tj /F1 10 Tf T*
+(Binary Search Tree deletion: handle leaf node, single child, and two children cases.) Tj T*
+T*
+/F2 12 Tf (3B  [4 Marks]) Tj /F1 10 Tf T*
+(Kruskal Minimum Spanning Tree algorithm using Disjoint Set Union  DSU .) Tj T*
+T*
+/F2 12 Tf (4A  [5 Marks]) Tj /F1 10 Tf T*
+(Collision resolution in Hash Tables: Quadratic Probing vs Separate Chaining comparison.) Tj T*
+T*
+/F2 12 Tf (4B  [4 Marks]) Tj /F1 10 Tf T*
+(Topological Sort on Directed Acyclic Graphs  DAG  using Kahn algorithm  in-degree .) Tj T*
+(-----------------------------------------------------------------------------------------------) Tj T*
+(CS 2101: DATA STRUCTURES [END OF PAPER]) Tj T*
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000002048 00000 n 
+0000002118 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+2193
+%%EOF

@@ -1,0 +1,42 @@
+name: 📄 Report a Missing PYQ
+description: Notify maintainers about a missing 3rd Semester Endsem question paper
+title: "[MISSING]: "
+labels: ["missing-pyq", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve the MIT Manipal 3rd Sem Endsem PYQ archive!
+  - type: input
+    id: subject
+    attributes:
+      label: Subject Name & Code
+      placeholder: e.g. Data Structures (CSS 2101)
+    validations:
+      required: true
+  - type: dropdown
+    id: year
+    attributes:
+      label: Examination Year
+      options:
+        - "2025"
+        - "2024"
+        - "2023"
+        - "2022"
+        - "Other (Specify in notes)"
+    validations:
+      required: true
+  - type: dropdown
+    id: variant
+    attributes:
+      label: Paper Variant
+      options:
+        - Regular
+        - Makeup
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional Information / PDF Link
+      placeholder: Do you have a copy of this paper? You can also email it to hasraadknowsyou@gmail.com.

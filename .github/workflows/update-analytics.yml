@@ -1,0 +1,47 @@
+name: Update Umami Analytics in README
+
+on:
+  schedule:
+    # Run daily at 00:00 UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: readme-analytics-update
+  cancel-in-progress: false
+
+jobs:
+  update-analytics:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Fetch Umami Analytics & Update README.md
+        env:
+          UMAMI_API_KEY: ${{ secrets.UMAMI_API_KEY }}
+          UMAMI_WEBSITE_ID: ${{ secrets.UMAMI_WEBSITE_ID }}
+        run: node .github/scripts/update-analytics.mjs
+
+      - name: Commit and push if README changed
+        run: |
+          if git diff --quiet README.md; then
+            echo "⚡ No changes detected in README.md analytics table. Skipping commit."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add README.md
+            git commit -m "chore(analytics): update live project metrics [skip ci]"
+            git push
+            echo "🎉 Successfully pushed updated live analytics to README.md"
+          fi
