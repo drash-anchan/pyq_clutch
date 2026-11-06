@@ -106,7 +106,7 @@ If you prefer not to use Git, you can email missing papers directly to the maint
 
 ---
 
-## 📋 Code of Conduct & Academic Integrity
+## Code of Conduct & Academic Integrity
 
 - Only submit authentic question papers administered by Manipal Institute of Technology.
 - Ensure PDFs are legible, correctly rotated, and free from private coaching watermarks.
