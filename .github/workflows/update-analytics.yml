@@ -31,7 +31,7 @@ jobs:
         env:
           POSTHOG_API_KEY: ${{ secrets.POSTHOG_API_KEY }}
           POSTHOG_PROJECT_ID: ${{ secrets.POSTHOG_PROJECT_ID }}
-          POSTHOG_HOST: ${{ secrets.POSTHOG_HOST || 'https://us.posthog.com' }}
+          POSTHOG_HOST: ${{ secrets.POSTHOG_HOST || 'https://eu.posthog.com' }}
         run: node .github/scripts/update-analytics.mjs
 
       - name: Commit and push if README changed

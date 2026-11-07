@@ -19,7 +19,7 @@ export const siteConfig = {
   
   // PostHog Silent Background Tracking (Free Tier: 1M events/month)
   posthogKey: (import.meta.env.VITE_POSTHOG_KEY as string) || "",
-  posthogHost: (import.meta.env.VITE_POSTHOG_HOST as string) || "https://us.i.posthog.com",
+  posthogHost: (import.meta.env.VITE_POSTHOG_HOST as string) || "https://eu.i.posthog.com",
 };
 
 // Aliased export for backwards-compatibility

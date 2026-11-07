@@ -13,7 +13,7 @@ import path from 'node:path';
 async function updateReadmeAnalytics() {
   const apiKey = process.env.POSTHOG_API_KEY?.trim();
   const projectId = process.env.POSTHOG_PROJECT_ID?.trim();
-  const host = (process.env.POSTHOG_HOST || 'https://us.posthog.com').replace(/\/+$/, '');
+  const host = (process.env.POSTHOG_HOST || 'https://eu.posthog.com').replace(/\/+$/, '');
 
   // 1. Validation: Fail clearly if required GitHub Secrets are missing
   if (!apiKey || !projectId) {
