@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, BookOpen } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { ThreePaperStack } from '../canvas/ThreePaperStack';
 import { getArchiveStats } from '../../data/pyqs';
 import { useTheme } from '../../context/ThemeContext';
@@ -56,13 +56,7 @@ export const Hero: React.FC = () => {
                 <ArrowRight className="w-3.5 h-3.5" style={{ color: isDark ? '#000000' : '#FFFFFF' }} />
               </Link>
 
-              <Link
-                to="/semester-3/endsem"
-                className="px-6 py-3.5 rounded-lg border border-black/20 dark:border-white/20 bg-white/50 dark:bg-[#0F1219] text-black dark:text-white font-mono text-xs font-semibold hover:border-black/50 dark:hover:border-white/50 transition-colors text-center flex items-center justify-center gap-2"
-              >
-                <BookOpen className="w-3.5 h-3.5 text-sand-600 dark:text-sand-400" />
-                <span>Browse 2022–2025</span>
-              </Link>
+
             </div>
 
             {/* Minimal Metrics Bar */}
