@@ -249,22 +249,17 @@ We welcome contributions from MIT Manipal students and alumni! See [CONTRIBUTING
 ---
 
 <!-- ANALYTICS:START -->
-###  PYQ Vault — Website Analytics
-
 | Metric | Last 30 Days |
 |---|---:|
-| Unique Visitors | *(Syncs on first workflow run)* |
-| Pageviews | *(Syncs on first workflow run)* |
-| Visits | *(Syncs on first workflow run)* |
-| Subjects Opened | *(Syncs on first workflow run)* |
-| Years Selected | *(Syncs on first workflow run)* |
-| PDF Preview Clicks | *(Syncs on first workflow run)* |
-| PDF Download Clicks | *(Syncs on first workflow run)* |
-| GitHub Contribution Clicks | *(Syncs on first workflow run)* |
-| Email Contribution Clicks | *(Syncs on first workflow run)* |
+| **Unique Visitors** | 1 |
+| **Total Pageviews** | 1 |
+| **PDF Preview Views** | 0 |
+| **PDF Downloads** | 0 |
+| **GitHub Contributor Clicks** | 0 |
+| **Email Submission Clicks** | 0 |
+| **Subject Explorations** | 0 |
 
-*Last updated: Pending initial GitHub Actions workflow run*  
-*Reporting period: Last 30 days*
+*Last synchronized via PostHog on 2026-11-07 UTC • Updated automatically by GitHub Actions daily cron.*
 <!-- ANALYTICS:END -->
 
 ###  Analytics Philosophy & Security
