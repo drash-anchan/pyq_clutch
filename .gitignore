@@ -59,4 +59,5 @@ TASKS.md
 VERSION
 adapters/
 model_capabilities.yaml
-scripts/
+/scripts/
+!/.github/scripts/

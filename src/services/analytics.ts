@@ -1,59 +1,34 @@
-import { SITE_CONFIG, isUmamiConfigured } from '../config/siteConfig';
-
-/**
- * Window augmentation for Umami tracking API
- */
-declare global {
-  interface Window {
-    umami?: {
-      track: {
-        (eventName: string, eventData?: Record<string, string | number | boolean>): void;
-        (customFunction: (props: Record<string, any>) => Record<string, any>): void;
-      };
-    };
-  }
-}
+import posthog from 'posthog-js';
+import { SITE_CONFIG, isPosthogConfigured } from '../config/siteConfig';
 
 let isInitialized = false;
 
 /**
- * Initializes the official Umami tracking script dynamically if configured.
- * Does not block application loading and fails silently if blocked by adblockers.
+ * Initializes PostHog silent analytics if configured.
+ * Operates purely in the background with zero visible UI or visitor tracking cookies.
  */
 export function initAnalytics(): void {
   if (isInitialized || typeof window === 'undefined') return;
 
-  if (!isUmamiConfigured()) {
-    // Umami website ID not configured; tracking is disabled.
+  if (!isPosthogConfigured()) {
     return;
   }
 
   try {
-    const existingScript = document.querySelector(`script[data-website-id="${SITE_CONFIG.umamiWebsiteId}"]`);
-    if (existingScript) {
-      isInitialized = true;
-      return;
-    }
-
-    const script = document.createElement('script');
-    script.defer = true;
-    script.async = true;
-    script.src = SITE_CONFIG.umamiScriptUrl;
-    script.setAttribute('data-website-id', SITE_CONFIG.umamiWebsiteId);
-    script.setAttribute('data-auto-track', 'true');
-
-    script.onload = () => {
-      isInitialized = true;
-    };
-
-    script.onerror = () => {
-      // Script blocked or network error - fail silently without impacting user UX
-      isInitialized = false;
-    };
-
-    document.head.appendChild(script);
+    posthog.init(SITE_CONFIG.posthogKey, {
+      api_host: SITE_CONFIG.posthogHost,
+      person_profiles: 'identified_only',
+      capture_pageview: true,
+      capture_pageleave: true,
+      autocapture: false,
+      disable_session_recording: true,
+      loaded: () => {
+        isInitialized = true;
+      },
+    });
+    isInitialized = true;
   } catch {
-    // Fail-safe catch
+    // Fail silently without blocking application
   }
 }
 
@@ -68,12 +43,8 @@ export function trackEvent(
   if (typeof window === 'undefined') return;
 
   try {
-    if (window.umami && typeof window.umami.track === 'function') {
-      if (eventData) {
-        window.umami.track(eventName, eventData);
-      } else {
-        window.umami.track(eventName);
-      }
+    if (isPosthogConfigured()) {
+      posthog.capture(eventName, eventData);
     }
   } catch {
     // Suppress analytics errors so core academic workflows are uninterrupted
@@ -100,59 +71,61 @@ export function trackSubjectOpened(subjectName: string, subjectId: string): void
 export function trackYearSelected(subjectName: string, year: number | 'all'): void {
   trackEvent('year_selected', {
     subject: subjectName,
-    year: typeof year === 'number' ? year : 'all_years',
+    year: String(year),
   });
 }
 
 /**
- * Track when a user clicks to view an ephemeral PDF preview modal
+ * Track when a user clicks the Preview Modal for a specific paper
  */
-export function trackPdfPreviewClicked(paper: {
+export function trackPdfPreviewClicked(paperMeta: {
   title: string;
   subjectName: string;
   year: number;
   variant: string;
 }): void {
   trackEvent('pdf_preview_clicked', {
-    subject: paper.subjectName,
-    year: paper.year,
-    paper: paper.title,
-    variant: paper.variant,
+    paper_title: paperMeta.title,
+    subject: paperMeta.subjectName,
+    year: paperMeta.year,
+    variant: paperMeta.variant,
   });
 }
 
 /**
- * Track when a user clicks the download action
- * (Accurately documented as a click action, not confirmed file delivery)
+ * Track when a user initiates a verified PDF paper download
  */
-export function trackPdfDownloadClicked(paper: {
+export function trackPdfDownloadClicked(paperMeta: {
   title: string;
   subjectName: string;
   year: number;
   variant: string;
 }): void {
   trackEvent('pdf_download_clicked', {
-    subject: paper.subjectName,
-    year: paper.year,
-    paper: paper.title,
-    variant: paper.variant,
+    paper_title: paperMeta.title,
+    subject: paperMeta.subjectName,
+    year: paperMeta.year,
+    variant: paperMeta.variant,
   });
 }
 
 /**
- * Track when a user clicks to explore the GitHub contribution way
+ * Track when a user clicks to explore the GitHub repository or contribute
  */
-export function trackGithubContributionClicked(): void {
+export function trackGithubContributionClicked(sourceLocation: string = 'contribution_hub'): void {
   trackEvent('github_contribution_clicked', {
-    target: 'repository',
+    source: sourceLocation,
+    action: 'visit_github_repo',
+    destination: SITE_CONFIG.githubRepositoryUrl,
   });
 }
 
 /**
- * Track when a user clicks to launch their email client for email contribution
+ * Track when a user clicks the direct email submission link
  */
-export function trackEmailContributionClicked(): void {
+export function trackEmailContributionClicked(subjectCode?: string): void {
   trackEvent('email_contribution_clicked', {
-    destination: 'mailto',
+    target_email: SITE_CONFIG.contributionEmail,
+    suggested_subject: subjectCode || 'general_3rd_sem',
   });
 }

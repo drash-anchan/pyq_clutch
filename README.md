@@ -91,7 +91,7 @@ Engineering students at MIT Manipal frequently lose crucial study time hunting t
 | **3D & Canvas** | [Three.js](https://threejs.org/) | Particle wave ambient atmosphere and 3D transforms |
 | **Icons** | [Lucide React](https://lucide.dev/) | Accessible, consistent iconography |
 | **Micro-Interactions** | [Canvas Confetti](https://www.npmjs.com/package/canvas-confetti) | Tactile feedback on paper download actions |
-| **Analytics** | [Umami](https://umami.is/) | Silent, cookieless, zero-PII academic engagement tracking |
+| **Analytics** | [PostHog](https://umami.is/) | Silent, cookieless, zero-PII academic engagement tracking |
 
 ---
 
@@ -189,7 +189,7 @@ pyq_clutch/
 │   │   ├── HomePage.tsx                # Homepage layout
 │   │   └── SubjectArchivePage.tsx      # Subject-first archive page
 │   ├── services/
-│   │   └── analytics.ts                # Silent non-blocking Umami tracking
+│   │   └── analytics.ts                # Silent non-blocking PostHog tracking
 │   ├── styles/
 │   │   └── index.css                   # Dual-theme CSS custom properties
 │   ├── types/
@@ -269,9 +269,9 @@ We welcome contributions from MIT Manipal students and alumni! See [CONTRIBUTING
 
 ###  Analytics Philosophy & Security
 - **Zero Frontend UI**: The website frontend displays **no** visitor counters, pageview numbers, or telemetry badges.
-- **Privacy-First**: Umami operates cookieless without gathering personally identifiable information (PII).
+- **Privacy-First**: PostHog operates cookieless without gathering personally identifiable information (PII).
 - **Automated Workflow**: `.github/workflows/update-analytics.yml` runs daily via GitHub Actions using secrets `UMAMI_API_KEY` and `UMAMI_WEBSITE_ID`.
-- **Safe Fallback**: If the Umami API cannot be reached, existing statistics are preserved. Zeros or fabricated numbers are never written.
+- **Safe Fallback**: If the PostHog API cannot be reached, existing statistics are preserved. Zeros or fabricated numbers are never written.
 
 ---
 

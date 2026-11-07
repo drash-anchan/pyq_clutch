@@ -17,9 +17,9 @@ export const siteConfig = {
   contributionMailto:
     "mailto:hasraadknowsyou@gmail.com?subject=PYQ%20Contribution&body=Hi%2C%0A%0AI%20would%20like%20to%20contribute%20previous%20year%20question%20papers.%0A%0ASubject%3A%0AExamination%20Year%3A%0APaper%20Variant%3A%0A%0AI%20have%20attached%20the%20PDF%20file.%0A%0AThank%20you.",
   
-  // Umami Silent Background Tracking
-  umamiWebsiteId: (import.meta.env.VITE_UMAMI_WEBSITE_ID as string) || "02f65530-7684-4468-a864-7434be263476",
-  umamiScriptUrl: (import.meta.env.VITE_UMAMI_SCRIPT_URL as string) || "https://cloud.umami.is/script.js",
+  // PostHog Silent Background Tracking (Free Tier: 1M events/month)
+  posthogKey: (import.meta.env.VITE_POSTHOG_KEY as string) || "",
+  posthogHost: (import.meta.env.VITE_POSTHOG_HOST as string) || "https://us.i.posthog.com",
 };
 
 // Aliased export for backwards-compatibility
@@ -35,6 +35,8 @@ export function getActiveGithubUrl(): string {
 /**
  * Returns whether Umami tracking is active.
  */
-export function isUmamiConfigured(): boolean {
-  return Boolean(siteConfig.umamiWebsiteId && siteConfig.umamiWebsiteId.trim().length > 0);
+export function isPosthogConfigured(): boolean {
+  return Boolean(siteConfig.posthogKey && siteConfig.posthogKey.trim().length > 0);
 }
+
+export const isUmamiConfigured = isPosthogConfigured;
