@@ -3,33 +3,51 @@
  *
  * Repository: https://github.com/drash-anchan/pyq_clutch
  *
- * Fetches verified 30-day traffic & event metrics from PostHog Query API (HogQL)
+ * Fetches verified all-time traffic & event metrics from PostHog Query API (HogQL)
  * and updates only the section between <!-- ANALYTICS:START --> and <!-- ANALYTICS:END -->.
+ *
+ * Permanent Monotonic Guarantee:
+ * - Queries cumulative all-time metrics across the entire lifecycle of the project.
+ * - Extracts and compares against existing numbers in README.md.
+ * - Enforces Math.max(existing, fetched) so numbers NEVER reset, decrease, or show 0.
  */
 
 import fs from 'node:fs';
 import path from 'node:path';
 
+function parseCurrentMetrics(content) {
+  const current = {
+    uniqueVisitors: 0,
+    totalPageviews: 0,
+    pdf_preview_clicked: 0,
+    pdf_download_clicked: 0,
+    github_contribution_clicked: 0,
+    email_contribution_clicked: 0,
+    subject_opened: 0,
+  };
+
+  const lines = content.split('\n');
+  for (const line of lines) {
+    const match = line.match(/\|\s*\*\*([^*]+)\*\*\s*\|\s*([\d,]+)\s*\|/);
+    if (!match) continue;
+    const label = match[1].trim();
+    const val = parseInt(match[2].replace(/,/g, ''), 10) || 0;
+
+    if (label.includes('Unique Visitors')) current.uniqueVisitors = val;
+    else if (label.includes('Total Pageviews')) current.totalPageviews = val;
+    else if (label.includes('PDF Preview Views')) current.pdf_preview_clicked = val;
+    else if (label.includes('PDF Downloads')) current.pdf_download_clicked = val;
+    else if (label.includes('GitHub Contributor Clicks')) current.github_contribution_clicked = val;
+    else if (label.includes('Email Submission Clicks')) current.email_contribution_clicked = val;
+    else if (label.includes('Subject Explorations')) current.subject_opened = val;
+  }
+  return current;
+}
+
 async function updateReadmeAnalytics() {
   const apiKey = process.env.POSTHOG_API_KEY?.trim();
   const projectId = process.env.POSTHOG_PROJECT_ID?.trim();
   const host = (process.env.POSTHOG_HOST || 'https://eu.posthog.com').replace(/\/+$/, '');
-
-  // 1. Validation: Fail clearly if required GitHub Secrets are missing
-  if (!apiKey || !projectId) {
-    console.error('❌ Notice: Missing required GitHub Secrets: POSTHOG_API_KEY or POSTHOG_PROJECT_ID.');
-    console.error('');
-    console.error('Please configure repository secrets:');
-    console.error('  1. POSTHOG_API_KEY: Personal API Key generated in PostHog -> User Settings -> Personal API Keys');
-    console.error('  2. POSTHOG_PROJECT_ID: Your PostHog Project ID found in Project Settings');
-    console.error('  3. POSTHOG_HOST (optional): Default is https://us.posthog.com (or https://eu.posthog.com)');
-    console.error('');
-    console.error('Setup path:');
-    console.error('  GitHub Repository -> Settings -> Secrets and variables -> Actions -> New repository secret');
-    console.error('');
-    console.error('Preserving existing README statistics table.');
-    process.exit(0);
-  }
 
   const readmePath = path.resolve('README.md');
   if (!fs.existsSync(readmePath)) {
@@ -49,6 +67,17 @@ async function updateReadmeAnalytics() {
     process.exit(1);
   }
 
+  // Parse existing metrics from README to guarantee numbers never decrease or reset
+  const currentSection = readmeContent.substring(startIndex, endIndex);
+  const existingMetrics = parseCurrentMetrics(currentSection);
+
+  // 1. Validation: Fail clearly if required GitHub Secrets are missing
+  if (!apiKey || !projectId) {
+    console.error('❌ Notice: Missing required GitHub Secrets: POSTHOG_API_KEY or POSTHOG_PROJECT_ID.');
+    console.error('Preserving existing README statistics table intact.');
+    process.exit(0);
+  }
+
   const headers = {
     'Accept': 'application/json',
     'Content-Type': 'application/json',
@@ -56,15 +85,15 @@ async function updateReadmeAnalytics() {
     'User-Agent': 'pyq-vault-github-analytics-bot/1.0',
   };
 
-  // Run HogQL Query to aggregate counts by event over last 30 days
+  // Run HogQL Query to aggregate counts by event (ALL-TIME cumulative)
   const hogqlQuery = {
     query: {
       kind: 'HogQLQuery',
-      query: "SELECT event, count(), count(distinct distinct_id) FROM events WHERE timestamp >= now() - INTERVAL 30 DAY GROUP BY event",
+      query: "SELECT event, count(), count(distinct distinct_id) FROM events GROUP BY event",
     },
   };
 
-  console.log(`📊 Querying PostHog project ${projectId} at ${host}...`);
+  console.log(`📊 Querying all-time cumulative metrics from PostHog project ${projectId} at ${host}...`);
 
   try {
     const res = await fetch(`${host}/api/projects/${projectId}/query/`, {
@@ -83,9 +112,9 @@ async function updateReadmeAnalytics() {
     const data = await res.json();
     const rows = data?.results || [];
 
-    let totalPageviews = 0;
-    let uniqueVisitors = 0;
-    const eventCounts = {
+    let fetchedPageviews = 0;
+    let fetchedVisitors = 0;
+    const fetchedEvents = {
       pdf_preview_clicked: 0,
       pdf_download_clicked: 0,
       github_contribution_clicked: 0,
@@ -96,18 +125,29 @@ async function updateReadmeAnalytics() {
 
     for (const [eventName, total, uniques] of rows) {
       if (eventName === '$pageview') {
-        totalPageviews += Number(total || 0);
-        uniqueVisitors += Number(uniques || 0);
-      } else if (eventName in eventCounts) {
-        eventCounts[eventName] = Number(total || 0);
+        fetchedPageviews += Number(total || 0);
+        fetchedVisitors += Number(uniques || 0);
+      } else if (eventName in fetchedEvents) {
+        fetchedEvents[eventName] = Number(total || 0);
       }
     }
+
+    // Monotonic Guarantee: Metrics strictly never decrease or reset to 0
+    const totalPageviews = Math.max(existingMetrics.totalPageviews, fetchedPageviews);
+    const uniqueVisitors = Math.max(existingMetrics.uniqueVisitors, fetchedVisitors);
+    const eventCounts = {
+      pdf_preview_clicked: Math.max(existingMetrics.pdf_preview_clicked, fetchedEvents.pdf_preview_clicked),
+      pdf_download_clicked: Math.max(existingMetrics.pdf_download_clicked, fetchedEvents.pdf_download_clicked),
+      github_contribution_clicked: Math.max(existingMetrics.github_contribution_clicked, fetchedEvents.github_contribution_clicked),
+      email_contribution_clicked: Math.max(existingMetrics.email_contribution_clicked, fetchedEvents.email_contribution_clicked),
+      subject_opened: Math.max(existingMetrics.subject_opened, fetchedEvents.subject_opened),
+    };
 
     const fmt = (n) => (n > 0 ? Number(n).toLocaleString('en-US') : '0');
     const today = new Date().toISOString().split('T')[0];
 
     const newTable = `${startMarker}
-| Metric | Last 30 Days |
+| Metric | All-Time Total |
 |---|---:|
 | **Unique Visitors** | ${fmt(uniqueVisitors)} |
 | **Total Pageviews** | ${fmt(totalPageviews)} |
@@ -117,7 +157,7 @@ async function updateReadmeAnalytics() {
 | **Email Submission Clicks** | ${fmt(eventCounts.email_contribution_clicked)} |
 | **Subject Explorations** | ${fmt(eventCounts.subject_opened)} |
 
-*Last synchronized via PostHog on ${today} UTC • Updated automatically by GitHub Actions daily cron.*
+*Last synchronized via PostHog on ${today} UTC • All-time cumulative telemetry • Updated daily by GitHub Actions.*
 ${endMarker}`;
 
     const updatedReadme =
@@ -126,7 +166,7 @@ ${endMarker}`;
       readmeContent.substring(endIndex + endMarker.length);
 
     fs.writeFileSync(readmePath, updatedReadme, 'utf-8');
-    console.log('✅ Successfully refreshed README.md analytics table from PostHog.');
+    console.log('✅ Successfully refreshed README.md all-time analytics table.');
   } catch (err) {
     console.error('⚠️ Could not complete PostHog sync:', err);
     console.log('Preserving existing README table.');

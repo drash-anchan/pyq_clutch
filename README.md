@@ -249,7 +249,7 @@ We welcome contributions from MIT Manipal students and alumni! See [CONTRIBUTING
 ---
 
 <!-- ANALYTICS:START -->
-| Metric | Last 30 Days |
+| Metric | All-Time Total |
 |---|---:|
 | **Unique Visitors** | 136 |
 | **Total Pageviews** | 196 |
@@ -259,13 +259,13 @@ We welcome contributions from MIT Manipal students and alumni! See [CONTRIBUTING
 | **Email Submission Clicks** | 0 |
 | **Subject Explorations** | 166 |
 
-*Last synchronized via PostHog on 2026-11-08 UTC • Updated automatically by GitHub Actions daily cron.*
+*Last synchronized via PostHog on 2026-11-08 UTC • All-time cumulative telemetry • Updated daily by GitHub Actions.*
 <!-- ANALYTICS:END -->
 
 ###  Analytics Philosophy & Security
 - **Zero Frontend UI**: The website frontend displays **no** visitor counters, pageview numbers, or telemetry badges.
 - **Privacy-First**: PostHog operates cookieless without gathering personally identifiable information (PII).
-- **Automated Workflow**: `.github/workflows/update-analytics.yml` runs daily via GitHub Actions using secrets `UMAMI_API_KEY` and `UMAMI_WEBSITE_ID`.
+- **Automated Workflow**: `.github/workflows/update-analytics.yml` runs daily via GitHub Actions using secrets `POSTHOG_API_KEY` and `POSTHOG_PROJECT_ID`.
 - **Safe Fallback**: If the PostHog API cannot be reached, existing statistics are preserved. Zeros or fabricated numbers are never written.
 
 ---
