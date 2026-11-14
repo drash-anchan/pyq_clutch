@@ -24,7 +24,6 @@ export const PdfPreviewModal: React.FC<PdfPreviewModalProps> = ({ paper, onClose
   const [copied, setCopied] = useState(false);
   const [downloading, setDownloading] = useState(false);
   const [mobileTab, setMobileTab] = useState<'paper' | 'details'>('paper');
-  const [useGoogleViewer, setUseGoogleViewer] = useState(false);
   const [isPdfLoading, setIsPdfLoading] = useState(true);
 
   // Detect mobile device
@@ -45,7 +44,6 @@ export const PdfPreviewModal: React.FC<PdfPreviewModalProps> = ({ paper, onClose
     if (paper) {
       document.body.style.overflow = 'hidden';
       setMobileTab('paper');
-      setUseGoogleViewer(false);
       setIsPdfLoading(true);
 
       // Fallback timer: native PDF iframe loaders don't always dispatch load events in all browser engines
@@ -73,8 +71,6 @@ export const PdfPreviewModal: React.FC<PdfPreviewModalProps> = ({ paper, onClose
 
   const isMakeup = paper.variant === 'Makeup';
   const directPdfUrl = paper.fileUrl;
-  const fullPublicUrl = typeof window !== 'undefined' ? (window.location.origin + directPdfUrl) : directPdfUrl;
-  const googleDocsViewerUrl = 'https://docs.google.com/viewer?url=' + encodeURIComponent(fullPublicUrl) + '&embedded=true';
 
   const handleOpenFullscreen = () => {
     window.open(directPdfUrl, '_blank', 'noopener,noreferrer');
@@ -246,61 +242,29 @@ export const PdfPreviewModal: React.FC<PdfPreviewModalProps> = ({ paper, onClose
                   </button>
                 </div>
 
-                {/* Inline Google Docs Viewer Option if user toggles it */}
-                {useGoogleViewer ? (
-                  <div className="w-full max-w-xl flex-1 min-h-[460px] rounded-lg overflow-hidden border border-black/15 dark:border-white/15 shadow-lg bg-white dark:bg-[#0F1219]">
-                    <iframe
-                      src={googleDocsViewerUrl}
-                      title={"Google Docs Viewer: " + paper.title}
-                      className="w-full h-full min-h-[460px] border-none"
-                    />
+                {/* High-Resolution Document Thumbnail Preview */}
+                <div
+                  onClick={handleOpenFullscreen}
+                  className="relative w-full max-w-xl rounded-lg overflow-hidden border border-black/15 dark:border-white/15 shadow-xl bg-white dark:bg-[#0B0D12] cursor-pointer group"
+                >
+                  <img
+                    src={paper.thumbnailUrl}
+                    alt={paper.title}
+                    className="w-full h-auto object-contain select-none"
+                  />
+
+                  {/* Tap overlay badge */}
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity backdrop-blur-xs">
+                    <span className="px-4 py-2 rounded-lg bg-white text-black font-bold text-xs shadow-lg flex items-center gap-1.5">
+                      <ExternalLink className="w-4 h-4" />
+                      <span>Tap to Open Full Document</span>
+                    </span>
                   </div>
-                ) : (
-                  /* High-Resolution Document Thumbnail Preview */
-                  <div
-                    onClick={handleOpenFullscreen}
-                    className="relative w-full max-w-xl rounded-lg overflow-hidden border border-black/15 dark:border-white/15 shadow-xl bg-white dark:bg-[#0B0D12] cursor-pointer group"
-                  >
-                    <img
-                      src={paper.thumbnailUrl}
-                      alt={paper.title}
-                      className="w-full h-auto object-contain select-none"
-                    />
 
-                    {/* Tap overlay badge */}
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity backdrop-blur-xs">
-                      <span className="px-4 py-2 rounded-lg bg-white text-black font-bold text-xs shadow-lg flex items-center gap-1.5">
-                        <ExternalLink className="w-4 h-4" />
-                        <span>Tap to Open Full Document</span>
-                      </span>
-                    </div>
-
-                    <div className="absolute bottom-2 right-2 px-2 py-1 rounded bg-black/80 text-white text-[10px] flex items-center gap-1 backdrop-blur-xs">
-                      <Eye className="w-3 h-3 text-sand-300" />
-                      <span>Tap to read all {paper.pageCount} pages</span>
-                    </div>
+                  <div className="absolute bottom-2 right-2 px-2 py-1 rounded bg-black/80 text-white text-[10px] flex items-center gap-1 backdrop-blur-xs">
+                    <Eye className="w-3 h-3 text-sand-300" />
+                    <span>Tap to read all {paper.pageCount} pages</span>
                   </div>
-                )}
-
-                {/* Secondary Mobile Actions */}
-                <div className="w-full max-w-xl flex flex-col sm:flex-row items-center gap-2 pt-1 pb-4">
-                  <button
-                    type="button"
-                    onClick={handleOpenFullscreen}
-                    className="w-full py-2.5 rounded-lg border border-black/15 dark:border-white/15 bg-white dark:bg-[#141824] text-black dark:text-white font-semibold text-xs flex items-center justify-center gap-1.5 shadow-sm active:scale-98 transition-all hover:bg-sand-50"
-                  >
-                    <ExternalLink className="w-3.5 h-3.5 text-sand-600 dark:text-sand-400" />
-                    <span>Open Full PDF in Browser Viewer</span>
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => setUseGoogleViewer(!useGoogleViewer)}
-                    className="w-full py-2 rounded-lg text-sand-600 dark:text-sand-400 hover:text-black dark:hover:text-white text-[11px] flex items-center justify-center gap-1 transition-colors"
-                  >
-                    <Layers className="w-3.5 h-3.5" />
-                    <span>{useGoogleViewer ? 'Show Fast Preview Image' : 'Try Inline Web Viewer (Google Docs)'}</span>
-                  </button>
                 </div>
 
               </div>
@@ -435,26 +399,15 @@ export const PdfPreviewModal: React.FC<PdfPreviewModalProps> = ({ paper, onClose
               <span className="text-[10px] uppercase text-sand-500 tracking-wider block font-bold">
                 Key Topics Covered
               </span>
-              <ul className="space-y-1 text-[11px] text-sand-700 dark:text-sand-300">
+              <ul className="space-y-1.5 text-[11px] text-sand-700 dark:text-sand-300 leading-snug">
                 {paper.topicsCovered.map((topic, i) => (
-                  <li key={i}>• {topic}</li>
+                  <li key={i} className="flex items-start gap-1.5">
+                    <span className="text-sand-400 dark:text-sand-600 shrink-0 select-none">•</span>
+                    <span>{topic}</span>
+                  </li>
                 ))}
               </ul>
             </div>
-
-            {/* Sample Exam Questions */}
-            {paper.sampleQuestions && paper.sampleQuestions.length > 0 && (
-              <div className="space-y-2 pt-2 border-t border-black/10 dark:border-white/10">
-                <span className="text-[10px] uppercase text-sand-500 tracking-wider block font-bold">
-                  Verified Sample Questions
-                </span>
-                <ul className="space-y-2 text-[11px] text-sand-700 dark:text-sand-300 italic">
-                  {paper.sampleQuestions.map((q, i) => (
-                    <li key={i}>"{q}"</li>
-                  ))}
-                </ul>
-              </div>
-            )}
           </div>
         </div>
 

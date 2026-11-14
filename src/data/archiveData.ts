@@ -32,7 +32,7 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
           papers: [
             {
               id: 'ds-2025-regular',
-              title: 'Data Structures 2025',
+              title: 'Data Structures 2025 Regular (Nov 2025)',
               subjectId: 'data-structures',
               subjectName: 'Data Structures',
               subjectCode: 'CSS 2101',
@@ -44,34 +44,35 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               fileSize: '82.5 KB',
               pageCount: 4,
               dateHeld: '20-Nov-2025',
-              topicsCovered: ['Circular Queue Array', 'Doubly Linked List Queue', 'AVL Tree Rotations', 'Two Stacks Single Array', 'Sparse Matrix Transpose', 'Stack Expression Evaluation'],
-              sampleQuestions: [
-                'Construct an AVL tree for insertions: [21, 26, 30, 9, 4, 14, 28, 18, 15] showing rotations and balance factors.',
-                'Develop a C program using Doubly Linked List to manage a patient queue in a hospital.',
-                'Two queues Q1 and Q2 are implemented in a single array of size N where Q1 grows left-to-right and Q2 grows right-to-left.'
-              ]
+              topicsCovered: [
+                'Module 4: Trees (16M / 32%) — AVL Tree Rotations & Deletion, BST Insertion, Double Threaded Trees, Expression Trees',
+                'Module 3: Stacks & Queues (12M / 24%) — Multi-Queue in Array, Undo-Redo Stack Application, Stack Activation Records, Queue Rearrangement',
+                'Module 1: Fundamentals (9M / 18%) — Sparse Matrix Fast Transpose (row_terms & starting_pos), Dynamic 2D Arrays, Nested Date Structures',
+                'Module 2: Linked Lists (8M / 16%) — Singly Linked List Playlist Filtering, Doubly Linked List Patient Queue',
+                'Module 5: Graphs (5M / 10%) — Delivery Hub Network DFS & BFS, Connected Subnetworks, Directed Reachability'
+              ],
             },
             {
               id: 'ds-2025-makeup',
-              title: 'Data Structures 2025 Makeup',
+              title: 'Data Structures 2025 Regular (Jan 2026)',
               subjectId: 'data-structures',
               subjectName: 'Data Structures',
               subjectCode: 'CSS 2101',
               year: 2025,
-              variant: 'Makeup',
+              variant: 'Regular',
               fileUrl: '/pyqs/semester-3/endsem/data-structures/2025/ds-2025-makeup.pdf',
               thumbnailUrl: '/thumbnails/ds-2025-makeup.png',
               vaultKey: 'vault-ds-2025-makeup',
               fileSize: '79.1 KB',
               pageCount: 3,
               dateHeld: '03-Jan-2026',
-              event: '058-MIT BLR-MAKEUP EXAM-2025-2026',
-              topicsCovered: ['Sparse Matrix Representation', 'Infix to Postfix Evaluation', 'Double Ended Queue', 'Threaded Binary Trees', 'Dijkstra Shortest Path'],
-              sampleQuestions: [
-                'Write C algorithm to convert infix algebraic expression into postfix representation using explicit stack.',
-                'Explain deletion in a Threaded Binary Tree with diagrams.',
-                'Implement Circular Deque with insertFront, deleteRear, and overflow handling.'
-              ]
+              topicsCovered: [
+                'Module 4: Trees (16M / 32%) — AVL Account Rotations & Deletion, BST Iterative Deletion, Level-Order Traversal, Leaf Node Counting',
+                'Module 3: Stacks & Queues (12M / 24%) — Four Stacks in Single Array, Infix-to-Postfix Precedence Functions, Duplicate Parentheses, Priority Queue Concept',
+                'Module 1: Fundamentals (9M / 18%) — Sparse Matrix Transpose using Linked List, Dynamic 2D String Arrays, Nested Employee Structures',
+                'Module 2: Linked Lists (8M / 16%) — Singly Linked List Reverse Traversal, Doubly Linked List Queue Simulation',
+                'Module 5: Graphs (5M / 10%) — Directed Graph Adjacency List, Recursive DFS Traversal, Spanning Tree Verification'
+              ],
             }
           ]
         },
@@ -93,11 +94,13 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               fileSize: '75.4 KB',
               pageCount: 3,
               dateHeld: '10-Jan-2024',
-              topicsCovered: ['Circular Queue Array', 'Binary Search Tree Traversal', 'Stack Recursion Simulation', 'Breadth First Search', 'Hashing with Open Addressing'],
-              sampleQuestions: [
-                'Trace stack state during quicksort partition algorithm execution.',
-                'Write complete function to search and delete a node with two children in a BST.'
-              ]
+              topicsCovered: [
+                'Module 1: Fundamentals (10M) — Ragged Array Dynamic Allocation & Recursive Sort, Employee Nested Structures',
+                'Module 3: Stacks & Queues (12M) — Circular Queue Array, Infix to Postfix Conversion, Stack Recursion Simulation',
+                'Module 4: Trees (14M) — Binary Search Tree Traversals & Deletions, Threaded Binary Trees',
+                'Module 2: Linked Lists (8M) — Singly & Doubly Linked List Operations, Node Deletion',
+                'Module 5: Graphs (6M) — Breadth First Search (BFS), Depth First Search (DFS), Adjacency Representation'
+              ],
             },
             {
               id: 'ds-2024-makeup-ict',
@@ -113,11 +116,13 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               fileSize: '76.8 KB',
               pageCount: 3,
               dateHeld: '05-Jan-2024',
-              topicsCovered: ['Priority Queue', 'Max Heapify', 'Polynomial Addition Linked List', 'Depth First Search', 'B-Tree Node Properties'],
-              sampleQuestions: [
-                'Demonstrate build-max-heap on sequence [4, 1, 3, 2, 16, 9, 10, 14, 8, 7].',
-                'Write C routine to add two single-variable polynomials represented as singly linked lists.'
-              ]
+              topicsCovered: [
+                'Module 2: Linked Lists (10M) — Doubly Linked List Deletion, Polynomial Linked Representation',
+                'Module 4: Trees (14M) — BST Internal Node Counting, Threaded BST Inorder Predecessor & Successor',
+                'Module 3: Stacks & Queues (14M) — Stack Sorting using Temporary Stack, Circular Queue Implementation',
+                'Module 1: Fundamentals (6M) — Recursion & Time Complexity, Dynamic Memory Allocation',
+                'Module 5: Graphs (6M) — Adjacency Matrix & DFS Traversal'
+              ],
             }
           ]
         },
@@ -139,11 +144,13 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               fileSize: '84.2 KB',
               pageCount: 4,
               dateHeld: '05-Dec-2023',
-              topicsCovered: ['Multiple Stacks', 'Singly Linked List Reversal', 'AVL Tree Double Rotations', 'Min Heap Creation', 'Kruskal Minimum Spanning Tree'],
-              sampleQuestions: [
-                'Write an algorithm to reverse a singly linked list in O(n) time and O(1) auxiliary space.',
-                'Construct AVL tree by inserting keys in given order and compute balance factor of each node.'
-              ]
+              topicsCovered: [
+                'Module 1: Fundamentals (9M / 18%) — Dynamic 1D Array Allocation, Recursive Binary Search & Array Sum, Nested Date Structures',
+                'Module 3: Stacks & Queues (12M / 24%) — Multiple Stacks in Single Array, Infix Evaluation, Circular Queue Operations',
+                'Module 4: Trees (15M / 30%) — AVL Tree Double Rotations (LL, RR, LR, RL), BST Search & Delete, Min Heap Creation',
+                'Module 2: Linked Lists (8M / 16%) — Singly Linked List Reversal, Polynomial Addition using Linked List',
+                'Module 5: Graphs (6M / 12%) — Graph Traversals (DFS/BFS), Minimum Spanning Tree'
+              ],
             },
             {
               id: 'ds-2023-regular-dse',
@@ -159,11 +166,13 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               fileSize: '81.9 KB',
               pageCount: 4,
               dateHeld: '05-Dec-2023',
-              topicsCovered: ['Queue using Stacks', 'Expression Tree Construction', 'Trie Prefix Trees', 'Topological Sort DAG', 'Dynamic Memory Management'],
-              sampleQuestions: [
-                'Implement a FIFO queue using two LIFO stacks with amortized O(1) dequeue cost.',
-                'Construct expression tree for postfix expression (a b + c * d e / -) and output prefix form.'
-              ]
+              topicsCovered: [
+                'Module 5: Graphs (14M / 28%) — Road Network Cost Optimization, Prim/Kruskal Minimum Spanning Tree, Dijkstra Algorithm',
+                'Module 4: Trees (14M / 28%) — Expression Tree Construction, Binary Search Tree Traversals, Threaded Trees',
+                'Module 3: Stacks & Queues (10M / 20%) — Queue using Stacks, Circular Queue Operations, Infix Expression Evaluation',
+                'Module 2: Linked Lists (6M / 12%) — Linked List Representation & Operations, Dynamic Nodes',
+                'Module 1: Fundamentals (6M / 12%) — Dynamic Memory Allocation, Recursive Search'
+              ],
             },
             {
               id: 'ds-2023-regular-ict',
@@ -179,11 +188,13 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               fileSize: '80.6 KB',
               pageCount: 3,
               dateHeld: '30-Nov-2023',
-              topicsCovered: ['Circular Queue Implementation', 'Binary Tree Reconstruction', 'Adjacency List vs Matrix', 'Radix Sort', 'Collision Resolution'],
-              sampleQuestions: [
-                'Given inorder and postorder traversal sequences, uniquely reconstruct the binary tree.',
-                'Explain quadratic probing with an example and compare against linear probing.'
-              ]
+              topicsCovered: [
+                'Module 3: Stacks & Queues (14M / 28%) — Circular Queue Array, Infix to Postfix Algorithm, Multiple Stacks',
+                'Module 4: Trees (14M / 28%) — Binary Tree Reconstruction from Traversals, BST Operations, Threaded Binary Trees',
+                'Module 2: Linked Lists (8M / 16%) — Singly Linked List Insertion & Deletion, Header Nodes',
+                'Module 1: Fundamentals (8M / 16%) — Sparse Matrix Representation, Pointers & Recursion',
+                'Module 5: Graphs (6M / 12%) — Adjacency Matrix vs Adjacency List, DFS/BFS Graph Search'
+              ],
             },
             {
               id: 'ds-2023-makeup',
@@ -199,11 +210,13 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               fileSize: '74.8 KB',
               pageCount: 3,
               dateHeld: '20-Jan-2023',
-              topicsCovered: ['Stack Applications', 'Circular Linked List', 'Binary Search Tree Operations', 'Graph Traversal', 'Heap Sort Analysis'],
-              sampleQuestions: [
-                'Write C algorithm to check if an arithmetic expression has balanced parentheses.',
-                'Perform heap sort on array [15, 19, 10, 7, 17, 16] step-by-step.'
-              ]
+              topicsCovered: [
+                'Module 2: Linked Lists (14M / 28%) — Doubly Linked List Polynomial Difference & Evaluation, Circular Linked List',
+                'Module 4: Trees (14M / 28%) — Binary Search Tree Construction, Threaded Memory Representation, Traversals',
+                'Module 1: Fundamentals (8M / 16%) — Recursive Array Sum & Time Complexity Analysis, Dynamic Memory',
+                'Module 3: Stacks & Queues (8M / 16%) — Stack Balanced Parentheses Applications, Queue Operations',
+                'Module 5: Graphs (6M / 12%) — Graph Traversal Algorithms, Spanning Trees'
+              ],
             }
           ]
         },
@@ -225,11 +238,13 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               fileSize: '78.9 KB',
               pageCount: 3,
               dateHeld: '08-Dec-2022',
-              topicsCovered: ['Sparse Matrix Triplet', 'Infix to Postfix Algorithm', 'Doubly Linked List Insertion', 'BST Traversals', 'Breadth First Search'],
-              sampleQuestions: [
-                'Convert infix expression (A + B * C) / (D - E) to postfix using stack trace table.',
-                'Write function to insert a node at the k-th position of a doubly linked list.'
-              ]
+              topicsCovered: [
+                'Module 2: Linked Lists (14M / 28%) — Singly Linked List Creation & Reversal after N/2-th Node, Doubly Linked List',
+                'Module 4: Trees (14M / 28%) — Min Heap Construction Step-by-Step, Binary Search Tree Traversals',
+                'Module 1: Fundamentals (8M / 16%) — Tabular Method Step Count & Time Complexity Analysis, Sparse Matrix',
+                'Module 3: Stacks & Queues (8M / 16%) — Infix to Postfix Conversion, Stack Expression Evaluation',
+                'Module 5: Graphs (6M / 12%) — Graph Adjacency Representation, Breadth First Search (BFS)'
+              ],
             }
           ]
         }
@@ -269,11 +284,12 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               fileSize: '91.4 KB',
               pageCount: 3,
               dateHeld: '18-Nov-2025',
-              topicsCovered: ['Propositional Logic Valid Arguments', 'Equivalence Relations & Partitions', 'Generating Functions', 'Homogeneous Recurrence Relations', 'Euler & Hamiltonian Graphs'],
-              sampleQuestions: [
-                'Test validity of argument: (p -> q) ^ (r -> s) ^ (p v r) => (q v s).',
-                'Find generating function for sequence 0, 2, 6, 12, 20, ... and solve recurrence.',
-                'Prove that a connected planar graph with n vertices, e edges and f faces satisfies n - e + f = 2.'
+              topicsCovered: [
+                'Module 1: Logic & Valid Arguments (CO1 - 10M / 20%) — Propositional Inference Theory, Logical Equivalence, Quantifiers',
+                'Module 2: Relations & Lattices (CO2 - 10M / 20%) — Equivalence Relations & Partitions, Hasse Diagrams, Posets & Lattices',
+                'Module 3: Combinatorics & Generating Functions (CO3 - 9M / 18%) — Principle of Inclusion-Exclusion, Generating Function Sequences',
+                'Module 4: Recurrence Relations (CO4 - 8M / 16%) — Homogeneous Linear Recurrences, Characteristic Equation Roots',
+                'Module 5: Graph Theory & Group Theory (CO5/CO6 - 13M / 26%) — Connected Planar Graphs Euler Formula, Hamiltonian Cycles, Groups & Cosets'
               ]
             },
             {
@@ -290,10 +306,12 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               fileSize: '89.2 KB',
               pageCount: 3,
               dateHeld: '30-Dec-2025',
-              topicsCovered: ['Predicate Calculus Quantifiers', 'Hasse Diagrams & Lattices', 'Non-homogeneous Recurrence', 'Isomorphic Graphs', 'Pigeonhole Principle'],
-              sampleQuestions: [
-                'Show that (D_30, |) is a Boolean lattice and find all atoms and complement elements.',
-                'Solve recurrence relation a_n - 5a_{n-1} + 6a_{n-2} = 2^n with a_0 = 1, a_1 = 3.'
+              topicsCovered: [
+                'Module 1: Logic & Predicate Calculus (10M / 20%) — Quantifier Negation, Rules of Inference, Tautological Implications',
+                'Module 2: Lattices & Boolean Algebra (10M / 20%) — Boolean Lattices, Atoms & Complements, Distributive Lattices',
+                'Module 4: Recurrence Relations (10M / 20%) — Non-Homogeneous Recurrence Relations, Particular Solutions',
+                'Module 5: Graph Theory (10M / 20%) — Isomorphic Graphs, Bipartite Graphs, Chromatic Number',
+                'Module 3: Combinatorics & Groups (10M / 20%) — Pigeonhole Principle, Subgroups & Lagrange Theorem'
               ]
             }
           ]
@@ -316,10 +334,12 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               fileSize: '86.5 KB',
               pageCount: 2,
               dateHeld: '02-Dec-2024',
-              topicsCovered: ['Principle of Inclusion-Exclusion', 'Warshall Algorithm for Transitive Closure', 'Distributive Lattices', 'Bipartite Graphs', 'Group Theory Cosets'],
-              sampleQuestions: [
-                'Determine number of integers between 1 and 1000 inclusive that are divisible by none of 3, 5, or 7.',
-                'Compute transitive closure matrix using Warshall algorithm for given 4-element relation.'
+              topicsCovered: [
+                'Module 3: Combinatorics (10M) — Principle of Inclusion-Exclusion (Divisibility Problems), Pigeonhole Principle',
+                'Module 2: Relations (10M) — Warshall Algorithm for Transitive Closure, Equivalence Relations',
+                'Module 2: Lattices (10M) — Posets, Hasse Diagrams, Distributive & Complemented Lattices',
+                'Module 5: Graph Theory (10M) — Bipartite Graphs, Euler Trails & Circuits, Hamiltonian Paths',
+                'Module 5: Group Theory (10M) — Groups, Subgroups, Cosets, Lagrange Theorem'
               ]
             },
             {
@@ -336,10 +356,12 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               fileSize: '87.1 KB',
               pageCount: 2,
               dateHeld: '07-Jan-2025',
-              topicsCovered: ['Truth Tables & Tautology', 'Equivalence Classes', 'Recurrence Particular Solutions', 'Chromatic Number of Graphs', 'Trees & Spanning Trees'],
-              sampleQuestions: [
-                'Find chromatic polynomial and chromatic number of wheel graph W_5.',
-                'Prove by induction that 3^(2n+2) - 8n - 9 is divisible by 64 for all n >= 1.'
+              topicsCovered: [
+                'Module 1: Logic (10M) — Truth Tables & Tautology Verification, Valid Deductions',
+                'Module 2: Relations (10M) — Equivalence Classes & Partitions, Partial Order Relations',
+                'Module 4: Recurrences (10M) — Linear Recurrence Particular Solutions, Generating Functions',
+                'Module 5: Graph Theory (10M) — Chromatic Number, Vertex Coloring, Spanning Trees',
+                'Module 3: Combinatorics (10M) — Permutations, Combinations, Binomial Coefficients'
               ]
             }
           ]
@@ -362,10 +384,12 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               fileSize: '85.7 KB',
               pageCount: 2,
               dateHeld: '27-Jan-2023',
-              topicsCovered: ['Logical Equivalence Proofs', 'Functions & Invertibility', 'Generating Function Sequences', 'Complete Bipartite Graphs', 'Lagrange Theorem Groups'],
-              sampleQuestions: [
-                'State and prove Lagrange theorem for finite subgroups.',
-                'Show that K_3,3 is non-planar using Kuratowski theorem.'
+              topicsCovered: [
+                'Module 1: Logic (10M) — Logical Equivalence Proofs without Truth Tables, Quantifiers',
+                'Module 3: Functions & Sequences (10M) — Invertible Functions, Generating Function Sequences',
+                'Module 5: Graph Theory (10M) — Complete Bipartite Graphs, Planar Graph Characterization',
+                'Module 5: Group Theory (10M) — Groups, Permutation Groups, Lagrange Theorem',
+                'Module 4: Recurrences (10M) — Solving Second-Order Recurrence Relations'
               ]
             }
           ]
@@ -388,10 +412,12 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               fileSize: '88.3 KB',
               pageCount: 2,
               dateHeld: '22-Dec-2022',
-              topicsCovered: ['Mathematical Induction', 'Posets and Hasse Diagrams', 'Linear Recurrence Relations', 'Planar Graphs', 'Group Theory'],
-              sampleQuestions: [
-                'State and prove Principle of Mathematical Induction for sum of squares of first n integers.',
-                'Solve linear recurrence relation with given initial conditions.'
+              topicsCovered: [
+                'Module 1: Logic (10M) — Mathematical Induction Proofs, Propositional Logic',
+                'Module 2: Posets & Lattices (10M) — Hasse Diagrams, Maximal & Minimal Elements, Lattices',
+                'Module 4: Recurrence Relations (10M) — Linear Recurrence Relations, Fibonacci Sequence Modeling',
+                'Module 5: Graph Theory (10M) — Planar Graphs, Handshaking Lemma, Graph Coloring',
+                'Module 5: Group Theory (10M) — Groups, Cyclic Groups & Subgroup Proofs'
               ]
             }
           ]
@@ -432,11 +458,12 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               fileSize: '84.0 KB',
               pageCount: 3,
               dateHeld: '29-Nov-2025',
-              topicsCovered: ['Karnaugh Maps 5-Variable', 'Carry Lookahead Adder', 'Cache Direct vs Set Associative', 'Booth Multiplier Algorithm', 'Pipelining Data Hazards'],
-              sampleQuestions: [
-                'Design a synchronous 3-bit up/down counter using JK flip-flops.',
-                'Explain Booth multiplication algorithm and multiply (-7) by (+3) showing all registers.',
-                'Calculate effective memory access time for a 2-level cache hierarchy with given hit ratios and penalties.'
+              topicsCovered: [
+                'Module 1: Combinational Logic (CO1 - 10M / 20%) — 5-Variable K-Map Minimization, Carry Lookahead Adder',
+                'Module 2: Sequential Logic (CO2 - 10M / 20%) — Synchronous Modulo Counter Design, Flip-Flop Conversion, Shift Registers',
+                'Module 3: Multiplication & CPU (CO3 - 10M / 20%) — 4x4 Booth Multiplier Algorithm, State Diagram & Controller Logic, Addressing Modes',
+                'Module 4: Memory System (CO4 - 10M / 20%) — Cache Memory Direct vs Set Associative Mapping, Virtual Memory TLB',
+                'Module 5: Pipelining & I/O (CO5 - 10M / 20%) — Instruction Pipelining Data Hazards, Branch Penalties, Interrupts & DMA'
               ]
             }
           ]
@@ -459,10 +486,12 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               fileSize: '79.5 KB',
               pageCount: 3,
               dateHeld: '05-Jan-2024',
-              topicsCovered: ['Hardwired vs Microprogrammed Control', 'Interrupt Vector Handling', 'Direct Memory Access Controller', 'Virtual Memory TLB', 'Addressing Modes'],
-              sampleQuestions: [
-                'Compare hardwired control unit and microprogrammed control unit with structural block diagrams.',
-                'Explain cycle stealing and burst mode in DMA transfers.'
+              topicsCovered: [
+                'Module 3: Control Unit (10M) — Hardwired vs Microprogrammed Control Unit, Microinstruction Sequencing',
+                'Module 5: I/O Organization (10M) — Interrupt Vector Handling, Direct Memory Access (DMA) Transfer Cycles',
+                'Module 4: Virtual Memory (10M) — Virtual Memory Page Tables, Translation Lookaside Buffer (TLB)',
+                'Module 3: CPU Architecture (10M) — Addressing Modes, Instruction Format & Execution Cycle',
+                'Module 4: Cache Memory (10M) — Cache Miss Penalties, Replacement Policies (LRU, FIFO)'
               ]
             },
             {
@@ -479,10 +508,12 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               fileSize: '81.2 KB',
               pageCount: 3,
               dateHeld: '12-Jan-2024',
-              topicsCovered: ['Quine-McCluskey Minimization', 'Mealy vs Moore State Machines', 'Priority Encoder Circuit', 'Johnson Counter', 'FPGA Architecture Basics'],
-              sampleQuestions: [
-                'Minimize Boolean function using Quine-McCluskey tabular method with don t care terms.',
-                'Design a sequence detector for pattern 1011 using Moore state model and D flip-flops.'
+              topicsCovered: [
+                'Module 1: Minimization (10M) — Quine-McCluskey (Tabular) Minimization Method with Prime Implicant Table',
+                'Module 2: State Machines (10M) — Mealy vs Moore Finite State Machine Design & State Reduction',
+                'Module 1: MSI Devices (10M) — Priority Encoder Logic, Decoder Tree Expansion',
+                'Module 2: Counters & Registers (10M) — Johnson & Ring Counter Timing, Universal Shift Register',
+                'Module 1: Programmable Logic (10M) — FPGA Architecture Basics, PAL vs PLA Implementation'
               ]
             },
             {
@@ -499,10 +530,12 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               fileSize: '80.1 KB',
               pageCount: 3,
               dateHeld: '10-Jan-2024',
-              topicsCovered: ['ALU Design Arithmetic Extension', 'Instruction Cycle Timing', 'Cache Write-Through vs Write-Back', 'Multiplexer Logic Realization', 'Memory Bus Protocols'],
-              sampleQuestions: [
-                'Implement Full Subtractor circuit using two 4:1 multiplexers.',
-                'Explain memory hierarchy performance tradeoff between L1 cache, L2 cache, and DRAM.'
+              topicsCovered: [
+                'Module 3: ALU Design (10M) — Arithmetic Logic Unit 4-bit Design, Function Select Bits',
+                'Module 3: Timing & Control (10M) — Instruction Cycle Sub-phases, Bus Timing Diagrams',
+                'Module 4: Cache Writing (10M) — Cache Write-Through vs Write-Back Policies, Cache Coherence',
+                'Module 1: Logic Realization (10M) — Multiplexer Tree Realization of Boolean Functions',
+                'Module 5: Memory Interconnect (10M) — Synchronous vs Asynchronous Memory Bus Protocols'
               ]
             }
           ]
@@ -525,10 +558,12 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               fileSize: '82.8 KB',
               pageCount: 3,
               dateHeld: '30-Nov-2023',
-              topicsCovered: ['IEEE 754 Floating Point Representation', 'Pipelining Branch Penalties', 'Microprogram Sequencing', 'Vector Processing', 'Bus Arbitration Schemes'],
-              sampleQuestions: [
-                'Represent decimal value -118.625 in IEEE 754 single-precision 32-bit floating-point format.',
-                'Analyze 5-stage RISC instruction pipeline and compute speedup over non-pipelined execution.'
+              topicsCovered: [
+                'Module 3: Arithmetic (10M) — IEEE 754 Single & Double Precision Floating Point Representation',
+                'Module 5: Pipelining (10M) — Instruction Pipelining Hazards (RAW, WAR, WAW) & Branch Prediction',
+                'Module 3: Control Unit (10M) — Microprogram Sequencer & Control Memory Addressing',
+                'Module 5: Parallelism (10M) — Vector Processing Concepts, Array Processors',
+                'Module 5: Bus Arbitration (10M) — Centralized vs Distributed Bus Arbitration Schemes'
               ]
             },
             {
@@ -545,10 +580,12 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               fileSize: '83.4 KB',
               pageCount: 3,
               dateHeld: '07-Dec-2023',
-              topicsCovered: ['Hazard Free Logic Circuits', 'State Table Reduction Implication Chart', 'Master-Slave JK Flip-Flop', 'Magnitude Comparator', 'PAL vs PLA Implementation'],
-              sampleQuestions: [
-                'Reduce state table using implication chart method and determine equivalence classes.',
-                'Explain race-around condition in JK flip-flop and show how Master-Slave design cures it.'
+              topicsCovered: [
+                'Module 1: Hazards (10M) — Static & Dynamic Hazard Detection and Hazard-Free Circuit Design',
+                'Module 2: State Reduction (10M) — State Table Minimization using Implication Chart Method',
+                'Module 2: Flip-Flops (10M) — Master-Slave JK Flip-Flop Race-Around Condition Solution',
+                'Module 1: Arithmetic Circuits (10M) — 4-bit Magnitude Comparator Design & Cascading',
+                'Module 1: PLDs (10M) — Programmable Logic Arrays (PLA) & Programmable Array Logic (PAL)'
               ]
             },
             {
@@ -565,10 +602,12 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               fileSize: '81.6 KB',
               pageCount: 3,
               dateHeld: '05-Dec-2023',
-              topicsCovered: ['Decoder Expansion Circuits', 'Synchronous Binary Counter', 'Instruction Pipelining RAW Hazards', 'Memory Interleaving', 'RISC vs CISC Architecture'],
-              sampleQuestions: [
-                'Construct 4:16 line decoder using five 2:4 line decoders with enable inputs.',
-                'Discuss data hazards in pipelined execution and describe operand forwarding mechanism.'
+              topicsCovered: [
+                'Module 1: Decoders (10M) — 3-to-8 Decoder Cascading to 4-to-16 Decoder with Enable',
+                'Module 2: Counters (10M) — Synchronous Binary Up/Down Counter Design using T Flip-Flops',
+                'Module 5: Pipelining (10M) — Read-After-Write (RAW) Data Hazards & Forwarding Solutions',
+                'Module 4: Memory Interleaving (10M) — High-Order vs Low-Order Memory Interleaving',
+                'Module 3: Architecture (10M) — RISC vs CISC Architecture Feature Comparison'
               ]
             },
             {
@@ -585,10 +624,12 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               fileSize: '77.3 KB',
               pageCount: 3,
               dateHeld: '23-Jan-2023',
-              topicsCovered: ['Shift Registers PIPO/SISO', 'Combinational Logic Optimization', 'Cache Mapping Techniques', 'I/O Polling vs Interrupt Driven', 'Instruction Format Design'],
-              sampleQuestions: [
-                'Compare Direct mapping, Associative mapping and Set-Associative mapping cache architectures.',
-                'Design 4-bit universal shift register capable of hold, shift-right, shift-left and parallel load.'
+              topicsCovered: [
+                'Module 2: Shift Registers (10M) — Parallel-In Parallel-Out (PIPO) & Serial-In Serial-Out (SISO)',
+                'Module 1: Logic Optimization (10M) — Combinational Circuit Design using NAND/NOR Universal Gates',
+                'Module 4: Cache Mapping (10M) — Direct Mapping, Fully Associative & 2-Way Set Associative',
+                'Module 5: I/O Interfaces (10M) — Programmed I/O, Interrupt-Driven I/O & DMA',
+                'Module 3: Instruction Formats (10M) — 3-Address, 2-Address, 1-Address & 0-Address Instruction Formats'
               ]
             }
           ]
@@ -611,10 +652,12 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               fileSize: '78.5 KB',
               pageCount: 3,
               dateHeld: '13-Dec-2022',
-              topicsCovered: ['Boolean Function Simplification', 'Full Adder/Subtractor Design', 'Flip-Flop Conversion D to T', 'Computer Memory Organization', 'Addressing Modes'],
-              sampleQuestions: [
-                'Convert SR flip-flop to JK flip-flop showing excitation tables and conversion logic equations.',
-                'Explain various addressing modes supported by modern CPU architectures with illustrative examples.'
+              topicsCovered: [
+                'Module 1: Boolean Algebra (10M) — Boolean Function Simplification using K-Map & Don’t Care Conditions',
+                'Module 1: Arithmetic Logic (10M) — Full Adder and Full Subtractor Design from Half Adders',
+                'Module 2: Flip-Flops (10M) — Flip-Flop Conversion (D to T, SR to JK) with Excitation Tables',
+                'Module 4: Memory System (10M) — Main Memory Organization, RAM/ROM Chip Interfacing',
+                'Module 3: Addressing Modes (10M) — Immediate, Direct, Indirect, Register & Indexed Addressing Modes'
               ]
             }
           ]
@@ -655,11 +698,12 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               fileSize: '83.1 KB',
               pageCount: 3,
               dateHeld: '22-Nov-2025',
-              topicsCovered: ['CRC Polynomial Divisor', 'Selective Repeat ARQ vs Go-Back-N', 'CIDR Subnet Mask Allocation', 'Dijkstra Link State Routing', 'TCP Congestion Control AIMD'],
-              sampleQuestions: [
-                'Generate 4-bit CRC remainder for bit stream 1101011011 using divisor polynomial x^4 + x + 1.',
-                'An organization is assigned address block 200.10.0.0/20. Design 4 subnets with given host requirements.',
-                'Demonstrate Dijkstra algorithm to determine least-cost paths from router Node A to all other nodes.'
+              topicsCovered: [
+                'Module 3: Network Layer (CO3 - 18M / 36%) — CIDR Subnetting & Mask Allocation, Distance Vector & Link State Routing Algorithms',
+                'Module 4: Transport Layer (CO4 - 10M / 20%) — TCP 3-Way Handshake, TCP Sliding Window Flow Control, AIMD Congestion Control',
+                'Module 5: Application Layer (CO5 - 8M / 16%) — DNS Iterative vs Recursive Resolution, HTTP/1.1 vs HTTP/2 Persistent Connections',
+                'Module 1: Physical Layer (CO1 - 7M / 14%) — Shannon & Nyquist Channel Capacity Limits, Line Coding (NRZ, Manchester)',
+                'Module 2: Data Link Layer (CO2 - 7M / 14%) — CRC Polynomial Error Detection, Sliding Window ARQ (Go-Back-N, Selective Repeat)'
               ]
             },
             {
@@ -676,10 +720,12 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               fileSize: '81.7 KB',
               pageCount: 3,
               dateHeld: '05-Jan-2026',
-              topicsCovered: ['Hamming Code Error Correction', 'CSMA/CD Minimum Frame Length', 'Distance Vector Routing Count-to-Infinity', 'DNS Resolution Iterative vs Recursive', 'TCP Three-Way Handshake'],
-              sampleQuestions: [
-                'Construct 7-bit Hamming code for 4-bit data word 1011 with even parity check bits.',
-                'Calculate minimum frame size in a 1 Gbps Ethernet LAN with cable length 1 km and propagation speed 2x10^8 m/s.'
+              topicsCovered: [
+                'Module 3: Network Layer (18M / 36%) — Distance Vector Count-to-Infinity Problem, Split Horizon, Subnetting Calculation',
+                'Module 2: Data Link Layer (10M / 20%) — Hamming Code Error Correction (Single-Bit Correction), CSMA/CD Minimum Frame Length',
+                'Module 4: Transport Layer (10M / 20%) — TCP Connection Termination 4-Way Handshake, Leaky Bucket vs Token Bucket Shaping',
+                'Module 1: Physical Layer (6M / 12%) — Signal Attenuation, Bit-Stuffing & Byte-Stuffing Framing, Pure vs Slotted ALOHA',
+                'Module 5: Application Layer (6M / 12%) — DNS Hierarchical Architecture, Email Protocols (SMTP, POP3, IMAP), Socket API'
               ]
             }
           ]
@@ -702,10 +748,12 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               fileSize: '80.5 KB',
               pageCount: 3,
               dateHeld: '15-Jan-2024',
-              topicsCovered: ['Line Coding NRZ-L/Manchester', 'Sliding Window Throughput Analysis', 'ARP Resolution Protocol', 'BGP Exterior Gateway Protocol', 'HTTP/1.1 vs HTTP/2 Persistent Connections'],
-              sampleQuestions: [
-                'Draw waveform for bit stream 0100110001 using Differential Manchester and bipolar AMI encoding.',
-                'Explain how Address Resolution Protocol resolves IPv4 address to Ethernet MAC address.'
+              topicsCovered: [
+                'Module 1: Transmission (10M) — Line Coding Schemes (NRZ-L, NRZ-I, Manchester, Differential Manchester)',
+                'Module 2: MAC & Flow Control (10M) — Sliding Window Throughput Efficiency, CSMA/CA Backoff Algorithm',
+                'Module 3: Address Resolution (10M) — ARP Request/Reply Operation, IPv4 Header Fields & Subnetting',
+                'Module 3: Routing Protocols (10M) — BGP Exterior Gateway Protocol vs OSPF Interior Routing',
+                'Module 5: Web Protocols (10M) — HTTP/1.1 Pipelining vs HTTP/2 Multiplexing, Non-Persistent vs Persistent Connections'
               ]
             }
           ]
@@ -728,10 +776,12 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               fileSize: '82.2 KB',
               pageCount: 3,
               dateHeld: '09-Dec-2023',
-              topicsCovered: ['Shannon & Nyquist Capacity Limit', 'Stop-and-Wait ARQ Efficiency', 'IP Packet Fragmentation and Reassembly', 'UDP Header vs TCP Header', 'Leaky Bucket Traffic Shaping'],
-              sampleQuestions: [
-                'A channel has bandwidth 4 kHz and SNR 30 dB. Calculate maximum theoretical data rate using Shannon formula.',
-                'Show fragmentation fields (Flags, Fragment Offset, Total Length) when a 4000-byte IPv4 packet traverses MTU 1500.'
+              topicsCovered: [
+                'Module 1: Information Theory (8M) — Shannon Channel Capacity & Nyquist Bit Rate Formulas',
+                'Module 2: Flow Control (10M) — Stop-and-Wait ARQ Protocol Efficiency & Utilization',
+                'Module 3: IP Protocol (14M) — IPv4 Packet Fragmentation & Reassembly (Offset & Flags), Subnet Masks',
+                'Module 4: Transport Protocols (10M) — TCP Segment Structure vs UDP Header, Port Numbers & Sockets',
+                'Module 4: Traffic Shaping (8M) — Leaky Bucket & Token Bucket Congestion Control Algorithms'
               ]
             },
             {
@@ -748,10 +798,12 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               fileSize: '78.9 KB',
               pageCount: 3,
               dateHeld: '30-Jan-2023',
-              topicsCovered: ['Transmission Media Attenuation', 'Bit-Stuffing & Byte-Stuffing', 'Pure ALOHA vs Slotted ALOHA', 'Subnetting Calculation', 'Email SMTP & POP3/IMAP'],
-              sampleQuestions: [
-                'Compare maximum channel throughput of Pure ALOHA with Slotted ALOHA and derive the peak utilization.',
-                'Perform bit stuffing on sequence 01111110111110011111110 using standard flag delimiter 01111110.'
+              topicsCovered: [
+                'Module 1: Media (8M) — Guided Transmission Media (Twisted Pair, Coaxial, Optical Fiber) Attenuation',
+                'Module 2: Framing (10M) — Character Stuffing & Bit Stuffing Framing Protocols',
+                'Module 2: Random Access (10M) — Pure ALOHA vs Slotted ALOHA Maximum Throughput Analysis',
+                'Module 3: Subnetting (12M) — Classless Inter-Domain Routing (CIDR) Subnet Calculations',
+                'Module 5: Mail & Web (10M) — Electronic Mail Transfer (SMTP, POP3, IMAP4) & MIME Encoding'
               ]
             }
           ]
@@ -774,10 +826,12 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               fileSize: '79.8 KB',
               pageCount: 3,
               dateHeld: '19-Dec-2022',
-              topicsCovered: ['OSI 7-Layer Architecture Functions', 'FDM vs TDM Multiplexing', 'Error Detection Checksum Algorithm', 'Distance Vector Bellman-Ford Routing', 'Socket API Client-Server Model'],
-              sampleQuestions: [
-                'List all seven layers of ISO-OSI model and describe primary functions and protocol data unit of each layer.',
-                'Compute Internet checksum for two 16-bit binary words using 1 s complement arithmetic.'
+              topicsCovered: [
+                'Module 1: Architecture (10M) — OSI 7-Layer Reference Model vs TCP/IP Protocol Suite Functions',
+                'Module 1: Multiplexing (10M) — Frequency Division (FDM) vs Time Division Multiplexing (TDM/STDM)',
+                'Module 2: Error Detection (10M) — Internet Checksum Algorithm & Cyclic Redundancy Check (CRC)',
+                'Module 3: Routing (10M) — Bellman-Ford Distance Vector Routing Algorithm Steps',
+                'Module 5: Sockets (10M) — Socket API Primitive Functions (socket, bind, listen, accept, connect)'
               ]
             }
           ]
@@ -818,11 +872,11 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               fileSize: '85.2 KB',
               pageCount: 3,
               dateHeld: '25-Nov-2025',
-              topicsCovered: ['Principal Component Analysis Eigenvectors', 'Z-Score Standardization vs Min-Max', 'Decision Tree Information Gain & Gini Impurity', 'Confusion Matrix Evaluation Metrics', 'K-Means Elbow Method'],
-              sampleQuestions: [
-                'Calculate Gini impurity and Information Gain to determine root split attribute for given training dataset.',
-                'Given covariance matrix of two features, determine principal eigenvalues and corresponding eigenvectors.',
-                'Compute Precision, Recall, F1-Score, and Specificity from given 2x2 confusion matrix.'
+              topicsCovered: [
+                'Module 4: Pattern & Classification (CO4 - 21M / 42%) — Association Rule Pattern Evaluation (Lift, Kulc, Cosine Measures), Decision Tree Splits',
+                'Module 5: Clustering & PCA (CO5 - 14M / 28%) — K-Means Clustering Centroids & Inertia, Principal Component Analysis (PCA) Eigenvectors',
+                'Module 3: Data Binning & Exploration (CO3 - 10M / 20%) — Equal-Width vs Equal-Frequency Binning Histogram Analysis, Multiple Linear Regression',
+                'Module 1: Preprocessing (CO1 - 5M / 10%) — Z-Score Standardization vs Min-Max Normalization, Missing Value Imputation Strategies'
               ]
             },
             {
@@ -840,10 +894,12 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               pageCount: 3,
               dateHeld: '27-Dec-2025',
               event: 'MAKE-UP EXAM-ODD SEMESTER 2025 MIT MANIPAL',
-              topicsCovered: ['Chi-Square Independence Test', 'Linear Regression Ordinary Least Squares', 'Logistic Regression Sigmoid Function', 'Hierarchical Clustering Dendrogram', 'Outlier Detection IQR Method'],
-              sampleQuestions: [
-                'Fit linear regression line y = beta_0 + beta_1 * x using Ordinary Least Squares for given 5 data pairs.',
-                'Perform Chi-Square goodness-of-fit test at 5% significance level to test independence of categorical variables.'
+              topicsCovered: [
+                'Module 4: Classification & Evaluation (15M / 30%) — ROC Curves, Area Under Curve (AUC), Confusion Matrix (Precision, Recall, F1-Score)',
+                'Module 3: Logistic Regression (12M / 24%) — Logistic Regression Sigmoid Function, Log-Odds & Decision Boundaries',
+                'Module 5: Hierarchical Clustering (10M / 20%) — Agglomerative Hierarchical Clustering Dendrogram, Distance Metrics',
+                'Module 2: Statistical Inference (8M / 16%) — Chi-Square Independence Test, Hypothesis Testing & P-Value Interpretation',
+                'Module 1: Outlier Detection (5M / 10%) — Interquartile Range (IQR) Outlier Identification, Box Plot Analysis'
               ]
             }
           ]
@@ -866,10 +922,12 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               fileSize: '82.0 KB',
               pageCount: 3,
               dateHeld: '09-Dec-2023',
-              topicsCovered: ['Data Cleaning Missing Value Imputation', 'Pearson Correlation Coefficient', 'Multiple Linear Regression R-Squared', 'ROC Curve & AUC Score', 'K-Nearest Neighbors Classification'],
-              sampleQuestions: [
-                'Compute Pearson correlation coefficient r between study hours and exam scores for given student data.',
-                'Explain Euclidean distance vs Manhattan distance metric in KNN and classify test query point with k = 3.'
+              topicsCovered: [
+                'Module 1: Preprocessing & Scaling (10M / 20%) — Feature Normalization, Handling Missing Values with Mean/Median Imputation',
+                'Module 2: Correlation Analysis (10M / 20%) — Pearson Correlation Coefficient Formula & Significance',
+                'Module 3: Linear Regression (10M / 20%) — Ordinary Least Squares (OLS) Regression Line, Coefficient Interpretation & R-Squared',
+                'Module 4: Supervised Learning (10M / 20%) — K-Nearest Neighbors (KNN) Distance Metrics, Decision Tree Gini Impurity',
+                'Module 5: Unsupervised Learning (10M / 20%) — K-Means Clustering Algorithm Steps & Elbow Method for Optimal K'
               ]
             }
           ]
