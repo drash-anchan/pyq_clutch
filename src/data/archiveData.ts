@@ -699,11 +699,11 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               pageCount: 3,
               dateHeld: '22-Nov-2025',
               topicsCovered: [
-                'Module 3: Network Layer (CO3 - 18M / 36%) — CIDR Subnetting & Mask Allocation, Distance Vector & Link State Routing Algorithms',
-                'Module 4: Transport Layer (CO4 - 10M / 20%) — TCP 3-Way Handshake, TCP Sliding Window Flow Control, AIMD Congestion Control',
-                'Module 5: Application Layer (CO5 - 8M / 16%) — DNS Iterative vs Recursive Resolution, HTTP/1.1 vs HTTP/2 Persistent Connections',
-                'Module 1: Physical Layer (CO1 - 7M / 14%) — Shannon & Nyquist Channel Capacity Limits, Line Coding (NRZ, Manchester)',
-                'Module 2: Data Link Layer (CO2 - 7M / 14%) — CRC Polynomial Error Detection, Sliding Window ARQ (Go-Back-N, Selective Repeat)'
+                'Module 3: Network Layer (CO3 - 18M / 36%) — CIDR Subnetting (/26 into 4 subnets), Route Aggregation, Router Forwarding Longest-Prefix Match, ARP Request/Reply Packets, Dijkstra Link-State Routing',
+                'Module 4: Transport Layer (CO4 - 10M / 20%) — IPv4 Datagram Multi-MTU Fragmentation (Offset & MF Flag), TCP Out-of-Order / Delayed Segment ACK Rules, UDP Frame Size Encapsulation',
+                'Module 5: Application Layer (CO5 - 8M / 16%) — TCP Three-Way Handshake Connection Establishment & Flags, DNS Recursive vs Iterative Resolution Diagrams',
+                'Module 1: Physical Layer (CO1 - 7M / 14%) — ASK vs FSK vs PSK Modulation Comparison & Telephone Channel Selection, Line Coding (Differential Manchester & Bipolar AMI)',
+                'Module 2: Data Link Layer (CO2 - 7M / 14%) — Sliding Window Go-Back-N vs Selective Repeat Transmission Counts (Periodic Frame Loss), Stop-and-Wait ARQ Propagation Delay Calculation'
               ]
             },
             {
@@ -721,11 +721,11 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               pageCount: 3,
               dateHeld: '05-Jan-2026',
               topicsCovered: [
-                'Module 3: Network Layer (18M / 36%) — Distance Vector Count-to-Infinity Problem, Split Horizon, Subnetting Calculation',
-                'Module 2: Data Link Layer (10M / 20%) — Hamming Code Error Correction (Single-Bit Correction), CSMA/CD Minimum Frame Length',
-                'Module 4: Transport Layer (10M / 20%) — TCP Connection Termination 4-Way Handshake, Leaky Bucket vs Token Bucket Shaping',
-                'Module 1: Physical Layer (6M / 12%) — Signal Attenuation, Bit-Stuffing & Byte-Stuffing Framing, Pure vs Slotted ALOHA',
-                'Module 5: Application Layer (6M / 12%) — DNS Hierarchical Architecture, Email Protocols (SMTP, POP3, IMAP), Socket API'
+                'Module 3: Network Layer (CO3 - 18M / 36%) — Subnetting Design for Custom Host Requirements, Router Longest Mask Match Forwarding, Direct vs Indirect Delivery, ARP Cache Table State Transitions, Dijkstra Shortest Path Table & Tree',
+                'Module 4: Transport & Protocols (CO4 - 16M / 32%) — IPv4 Datagram Fragmentation across Dual MTU Networks (2000B to 600B), TCP Congestion Control AIMD (cwnd Growth & Throughput), GBN vs SR vs TCP Loss Comparison, DNS Iterative Query-Response Count',
+                'Module 1: Physical Layer (CO1 - 7M / 14%) — Composite Periodic Square Wave Data Rate & Bandwidth Analysis, Line Coding (Manchester & Bipolar AMI)',
+                'Module 2: Data Link Layer (CO2 - 7M / 14%) — CRC Error Detection Encoding (Generator Polynomial P=11011), Hub vs Switch vs Router Transmission Analysis, CSMA/CD Minimum Frame Size for Collision Detection',
+                'Module 5: Application Layer (CO5 - 2M / 4%) — UDP Hexadecimal Header Dump Decoding (Source/Destination Ports, Length, Direction)'
               ]
             }
           ]
@@ -749,11 +749,11 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               pageCount: 3,
               dateHeld: '15-Jan-2024',
               topicsCovered: [
-                'Module 1: Transmission (10M) — Line Coding Schemes (NRZ-L, NRZ-I, Manchester, Differential Manchester)',
-                'Module 2: MAC & Flow Control (10M) — Sliding Window Throughput Efficiency, CSMA/CA Backoff Algorithm',
-                'Module 3: Address Resolution (10M) — ARP Request/Reply Operation, IPv4 Header Fields & Subnetting',
-                'Module 3: Routing Protocols (10M) — BGP Exterior Gateway Protocol vs OSPF Interior Routing',
-                'Module 5: Web Protocols (10M) — HTTP/1.1 Pipelining vs HTTP/2 Multiplexing, Non-Persistent vs Persistent Connections'
+                'Module 1: Signals & Physical Layer (10M / 20%) — Periodic Continuous vs Discrete Signals, Analog vs Digital Time Domain, SNR Optimization Trade-Offs, Parabolic Antenna Path Loss & Gains',
+                'Module 1: Line Coding & Encoding (10M / 20%) — Differential Manchester Encoding (DME), HDB3 Scrambling, Manchester Bandwidth vs NRZ, Vertical Redundancy Check (VRC) Parity',
+                'Module 2: Error Correction & Framing (10M / 20%) — Hamming Code (Length 15) Parity Bit Calculation & Syndrome, Sliding Window Go-Back-N Window Positions, Statistical vs Synchronous TDM',
+                'Module 2: Flow Control & Bridging (10M / 20%) — Satellite Link Utilization (270ms Delay) for Stop-and-Wait vs Continuous Windows, TCP over IP over PPP over 56 kbps Link, Spanning Tree Bridge Configuration (Y, d, X) & Blocked Ports',
+                'Module 2: Medium Access Control (10M / 20%) — CSMA/CD Minimum Frame Size Calculation at 10 Gbps, FDMA vs TDMA vs CDMA, Long Latency Sliding Window Sequence Number Calculation'
               ]
             }
           ]
@@ -777,11 +777,11 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               pageCount: 3,
               dateHeld: '09-Dec-2023',
               topicsCovered: [
-                'Module 1: Information Theory (8M) — Shannon Channel Capacity & Nyquist Bit Rate Formulas',
-                'Module 2: Flow Control (10M) — Stop-and-Wait ARQ Protocol Efficiency & Utilization',
-                'Module 3: IP Protocol (14M) — IPv4 Packet Fragmentation & Reassembly (Offset & Flags), Subnet Masks',
-                'Module 4: Transport Protocols (10M) — TCP Segment Structure vs UDP Header, Port Numbers & Sockets',
-                'Module 4: Traffic Shaping (8M) — Leaky Bucket & Token Bucket Congestion Control Algorithms'
+                'Module 1: Signals & Channel Capacity (10M / 20%) — Shannon Channel Capacity & Nyquist Bit Rate Limits, Multilevel PSK Signaling (M=8), 16-QAM Bandwidth, ASK Constellation Diagram, Twisted Pair vs Coaxial Cable',
+                'Module 2: Error Detection & Multiplexing (10M / 20%) — Hamming Code (7, 4) Encoding & Single-Bit Error Correction Steps, Vertical Redundancy Check (VRC), Statistical TDM vs Synchronous TDM',
+                'Module 2: Flow Control (10M / 20%) — Stop-and-Wait ARQ Total Transmission Time Calculations (3000 km & 5000 km, 1M bits, 2x10^8 m/s)',
+                'Module 2: Framing & Bridging (10M / 20%) — PPP vs HDLC Protocol Architecture, Learning Bridge Forwarding Table Trace (B1-B4 Port Mapping)',
+                'Module 2: Medium Access Control (10M / 20%) — Pure ALOHA Channel Capacity & Max Stations (56 kbps), CSMA/CD Minimum Frame Size (1 Gbps), Sliding Window Optimal Window Size for 80ms RTT & 128 kbps Bottleneck, MAC vs LLC Sublayer'
               ]
             },
             {
@@ -799,11 +799,11 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               pageCount: 3,
               dateHeld: '30-Jan-2023',
               topicsCovered: [
-                'Module 1: Media (8M) — Guided Transmission Media (Twisted Pair, Coaxial, Optical Fiber) Attenuation',
-                'Module 2: Framing (10M) — Character Stuffing & Bit Stuffing Framing Protocols',
-                'Module 2: Random Access (10M) — Pure ALOHA vs Slotted ALOHA Maximum Throughput Analysis',
-                'Module 3: Subnetting (12M) — Classless Inter-Domain Routing (CIDR) Subnet Calculations',
-                'Module 5: Mail & Web (10M) — Electronic Mail Transfer (SMTP, POP3, IMAP4) & MIME Encoding'
+                'Module 2: Flow Control & ARQ (10M / 20%) — Sliding Window Go-Back-N Protocol (Window Size 4) Multi-Event Window Transitions, Acknowledgement Loss Handling',
+                'Module 1: Wireless Transmission & Noise (10M / 20%) — Transmit Power in dBm and dBW (50W), Free Space Path Loss at 100m and 10km (900 MHz), Thermal Noise Calculation at 294K (15 MHz Bandwidth)',
+                'Module 1: Signal Analysis (10M / 20%) — Fourier Series Analysis of Square Waves, Analog vs Digital Transmission Trade-Offs',
+                'Module 2: Error Detection (10M / 20%) — Cyclic Redundancy Check (CRC) Polynomial Division & Codewords, Internet Checksum Algorithm',
+                'Module 1: Transmission Media & Multiplexing (10M / 20%) — Guided Media Transmission Characteristics, Synchronous vs Statistical Time Division Multiplexing'
               ]
             }
           ]
@@ -827,11 +827,11 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               pageCount: 3,
               dateHeld: '19-Dec-2022',
               topicsCovered: [
-                'Module 1: Architecture (10M) — OSI 7-Layer Reference Model vs TCP/IP Protocol Suite Functions',
-                'Module 1: Multiplexing (10M) — Frequency Division (FDM) vs Time Division Multiplexing (TDM/STDM)',
-                'Module 2: Error Detection (10M) — Internet Checksum Algorithm & Cyclic Redundancy Check (CRC)',
-                'Module 3: Routing (10M) — Bellman-Ford Distance Vector Routing Algorithm Steps',
-                'Module 5: Sockets (10M) — Socket API Primitive Functions (socket, bind, listen, accept, connect)'
+                'Module 2: Data Link Protocols (10M / 20%) — Selective Repeat ARQ Sliding Window Diagram (3-Bit Sequence Numbers, Frame Loss, Timeout, Buffer Full Handling)',
+                'Module 1: Signal Power & Free Space Loss (10M / 20%) — Transmit Power Conversion to dBm and dBW (100W), Free Space Path Loss at 50m and 10km (800 MHz Carrier Frequency)',
+                'Module 1: Channel Capacity (10M / 20%) — Nyquist Maximum Data Rate and Shannon Capacity Formula for Noisy Channels',
+                'Module 2: Error Detection & Correction (10M / 20%) — CRC Generator Polynomials & Error Checking, Parity Check Mechanisms',
+                'Module 1: Multiplexing Techniques (10M / 20%) — Frequency Division Multiplexing (FDM) vs Time Division Multiplexing (TDM) System Architecture'
               ]
             }
           ]
