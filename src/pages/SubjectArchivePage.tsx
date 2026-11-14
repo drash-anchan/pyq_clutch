@@ -291,10 +291,11 @@ export const SubjectArchivePage: React.FC = () => {
 
                 {/* Grid of Papers for this Subject and Year */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {yearGroup.papers.map((paper) => (
+                  {yearGroup.papers.map((paper, idx) => (
                     <PaperCard
                       key={paper.id}
                       paper={paper}
+                      index={idx}
                       onPreview={(p) => setPreviewPaper(p)}
                     />
                   ))}

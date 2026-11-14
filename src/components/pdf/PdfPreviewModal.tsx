@@ -25,6 +25,7 @@ export const PdfPreviewModal: React.FC<PdfPreviewModalProps> = ({ paper, onClose
   const [downloading, setDownloading] = useState(false);
   const [mobileTab, setMobileTab] = useState<'paper' | 'details'>('paper');
   const [useGoogleViewer, setUseGoogleViewer] = useState(false);
+  const [isPdfLoading, setIsPdfLoading] = useState(true);
 
   // Detect mobile device
   const [isMobile, setIsMobile] = useState(() => {
@@ -45,6 +46,14 @@ export const PdfPreviewModal: React.FC<PdfPreviewModalProps> = ({ paper, onClose
       document.body.style.overflow = 'hidden';
       setMobileTab('paper');
       setUseGoogleViewer(false);
+      setIsPdfLoading(true);
+
+      // Fallback timer: native PDF iframe loaders don't always dispatch load events in all browser engines
+      const timer = setTimeout(() => {
+        setIsPdfLoading(false);
+      }, 2200);
+
+      return () => clearTimeout(timer);
     }
 
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -297,10 +306,39 @@ export const PdfPreviewModal: React.FC<PdfPreviewModalProps> = ({ paper, onClose
               </div>
             ) : (
               /* Desktop Clean PDF Embed */
-              <div className="flex-1 h-full relative">
+              <div className="flex-1 h-full relative bg-sand-100/30 dark:bg-[#07090D] flex flex-col overflow-hidden">
+                {/* Seamless Loading Skeleton Overlay */}
+                {isPdfLoading && (
+                  <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-white/95 dark:bg-[#0B0D13]/95 backdrop-blur-xs transition-opacity duration-300 select-none">
+                    <div className="flex flex-col items-center gap-3 p-6 max-w-sm text-center">
+                      <div className="relative w-10 h-10">
+                        <div className="absolute inset-0 rounded-full border-2 border-black/10 dark:border-white/10" />
+                        <div className="absolute inset-0 rounded-full border-2 border-black dark:border-white border-t-transparent dark:border-t-transparent animate-spin" />
+                      </div>
+                      <div className="space-y-1">
+                        <p className="font-mono text-xs font-bold text-black dark:text-white">
+                          Loading {paper.subjectCode} • {paper.year}
+                        </p>
+                        <p className="font-mono text-[11px] text-sand-600 dark:text-sand-400">
+                          Rendering authentic PDF ({paper.fileSize})...
+                        </p>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={handleOpenFullscreen}
+                        className="mt-2 text-[11px] text-sand-600 dark:text-sand-400 hover:text-black dark:hover:text-white underline font-mono flex items-center gap-1"
+                      >
+                        <span>Open full viewer in new tab</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </button>
+                    </div>
+                  </div>
+                )}
+
                 <iframe
                   src={directPdfUrl + "#view=FitH"}
                   title={"Secure Vault: " + paper.title}
+                  onLoad={() => setIsPdfLoading(false)}
                   className="w-full h-full border-none"
                 />
               </div>

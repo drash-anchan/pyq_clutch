@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Download, ArrowUpRight, FileText, Sparkles, Calendar } from 'lucide-react';
 import { ArchivePaper } from '../../types';
 import { SpotlightCard } from '../common/SpotlightCard';
@@ -6,18 +6,29 @@ import { downloadSecurePaper } from '../../utils/vaultService';
 import { triggerAcademicConfetti } from '../../utils/downloadHelper';
 import { trackPdfPreviewClicked, trackPdfDownloadClicked } from '../../services/analytics';
 import { useTheme } from '../../context/ThemeContext';
+import { prefetchPaperPdf } from '../../utils/prefetchHelper';
 
 interface PaperCardProps {
   paper: ArchivePaper;
   onPreview: (paper: ArchivePaper) => void;
+  index?: number;
 }
 
-export const PaperCard: React.FC<PaperCardProps> = ({ paper, onPreview }) => {
-  const [downloading, setDownloading] = React.useState(false);
+export const PaperCard: React.FC<PaperCardProps> = ({ paper, onPreview, index = 0 }) => {
+  const [downloading, setDownloading] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
   const isMakeup = paper.variant === 'Makeup';
   const { isDark } = useTheme();
 
+  // Elevate priority for top above-the-fold cards (index < 3), lazy load the rest
+  const isAboveTheFold = index < 3;
+
+  const handleWarmup = () => {
+    prefetchPaperPdf(paper.fileUrl);
+  };
+
   const handlePreview = () => {
+    handleWarmup();
     trackPdfPreviewClicked({
       title: paper.title,
       subjectName: paper.subjectName,
@@ -50,19 +61,35 @@ export const PaperCard: React.FC<PaperCardProps> = ({ paper, onPreview }) => {
   };
 
   return (
-    <SpotlightCard className="p-5 flex flex-col justify-between group overflow-hidden">
+    <SpotlightCard
+      className="p-5 flex flex-col justify-between group overflow-hidden"
+      onMouseEnter={handleWarmup}
+      onTouchStart={handleWarmup}
+    >
       <div className="space-y-4">
         
         {/* 1. PDF First-Page Document Thumbnail Preview */}
         <div
           onClick={handlePreview}
-          className="relative aspect-[16/11] w-full overflow-hidden rounded-lg bg-sand-100 dark:bg-[#07090D] border border-black/10 dark:border-white/10 group-hover:border-sand-400 dark:group-hover:border-sand-600 transition-all cursor-pointer shadow-inner"
+          className="relative aspect-[16/11] w-full overflow-hidden rounded-lg bg-sand-200/50 dark:bg-[#07090D] border border-black/10 dark:border-white/10 group-hover:border-sand-400 dark:group-hover:border-sand-600 transition-all cursor-pointer shadow-inner"
         >
+          {/* Skeleton placeholder while image decodes */}
+          {!imageLoaded && (
+            <div className="absolute inset-0 bg-sand-200/70 dark:bg-carbon-800/60 animate-pulse flex items-center justify-center">
+              <FileText className="w-6 h-6 text-sand-400/50 dark:text-sand-600/50" />
+            </div>
+          )}
+
           <img
             src={paper.thumbnailUrl}
             alt={paper.title}
-            className="w-full h-full object-cover object-top opacity-95 group-hover:opacity-100 group-hover:scale-[1.02] transition-transform duration-300"
-            loading="lazy"
+            className={`w-full h-full object-cover object-top transition-all duration-300 ${
+              imageLoaded ? 'opacity-95 group-hover:opacity-100 group-hover:scale-[1.02]' : 'opacity-0'
+            }`}
+            loading={isAboveTheFold ? 'eager' : 'lazy'}
+            {...(isAboveTheFold ? { fetchPriority: 'high' } : {})}
+            decoding="async"
+            onLoad={() => setImageLoaded(true)}
           />
 
           {/* Overlay Badges */}

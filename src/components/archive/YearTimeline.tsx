@@ -55,8 +55,8 @@ export const YearTimeline: React.FC<YearTimelineProps> = ({
 
             {/* Grid of Papers for this Year */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {yearPapers.map((paper) => (
-                <PaperCard key={paper.id} paper={paper} onPreview={onPreview} />
+              {yearPapers.map((paper, idx) => (
+                <PaperCard key={paper.id} paper={paper} index={idx} onPreview={onPreview} />
               ))}
             </div>
           </div>
