@@ -95,11 +95,11 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               pageCount: 3,
               dateHeld: '10-Jan-2024',
               topicsCovered: [
-                'Module 1: Fundamentals (10M) — Ragged Array Dynamic Allocation & Recursive Sort, Employee Nested Structures',
-                'Module 3: Stacks & Queues (12M) — Circular Queue Array, Infix to Postfix Conversion, Stack Recursion Simulation',
-                'Module 4: Trees (14M) — Binary Search Tree Traversals & Deletions, Threaded Binary Trees',
-                'Module 2: Linked Lists (8M) — Singly & Doubly Linked List Operations, Node Deletion',
-                'Module 5: Graphs (6M) — Breadth First Search (BFS), Depth First Search (DFS), Adjacency Representation'
+                'Module 4: Trees (20M / 40%) — Structurally Identical Binary Trees & Merge by Summing, BST Construction & Search, Threaded Binary Trees, Level-Order Traversal',
+                'Module 1: Fundamentals (12M / 24%) — Ragged Array Dynamic Allocation & Recursive Sort, Employee Nested Structures & Salary Hike, Dangling Pointers',
+                'Module 3: Stacks & Queues (7M / 14%) — Queue Reversal, Customer Care Call Center Queue, Postfix-to-Prefix Stack Conversion',
+                'Module 5: Graphs (6M / 12%) — Road Network DFS Connectivity (5 Cities), Graph Adjacency List Construction',
+                'Module 2: Linked Lists (5M / 10%) — Doubly Linked List Sorted Insertion (sortedInsert), Circular Singly Linked List InsertLast'
               ],
             },
             {
@@ -117,11 +117,11 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               pageCount: 3,
               dateHeld: '05-Jan-2024',
               topicsCovered: [
-                'Module 2: Linked Lists (10M) — Doubly Linked List Deletion, Polynomial Linked Representation',
-                'Module 4: Trees (14M) — BST Internal Node Counting, Threaded BST Inorder Predecessor & Successor',
-                'Module 3: Stacks & Queues (14M) — Stack Sorting using Temporary Stack, Circular Queue Implementation',
-                'Module 1: Fundamentals (6M) — Recursion & Time Complexity, Dynamic Memory Allocation',
-                'Module 5: Graphs (6M) — Adjacency Matrix & DFS Traversal'
+                'Module 4: Trees (15M / 30%) — Expression Tree Creation & Evaluation, BST Construction & Internal Node Counting, Threaded BST Inorder Predecessor/Successor, Mirror Tree Check',
+                'Module 1: Fundamentals & Sparse Matrix (10M / 20%) — Puzzle Board Sparse Matrix Fast Transpose (rowTerms & startingPosition), Array of Pointers Name Sorting',
+                'Module 2: Linked Lists (10M / 20%) — Doubly Linked List Last Node Deletion, Singly Linked List Equality & Intersection, Polynomial Addition using SLL',
+                'Module 3: Stacks & Queues (10M / 20%) — Integer Stack Sorting using Temporary Stack, Multiple Equal Stacks & Balanced Bracket Verification, Circular Queue Deletion',
+                'Module 5: Graphs (5M / 10%) — Graph Drawing from Adjacency Matrix, Adjacency List Representation, Node Degree Computation'
               ],
             }
           ]
@@ -145,11 +145,11 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               pageCount: 4,
               dateHeld: '05-Dec-2023',
               topicsCovered: [
-                'Module 1: Fundamentals (9M / 18%) — Dynamic 1D Array Allocation, Recursive Binary Search & Array Sum, Nested Date Structures',
-                'Module 3: Stacks & Queues (12M / 24%) — Multiple Stacks in Single Array, Infix Evaluation, Circular Queue Operations',
-                'Module 4: Trees (15M / 30%) — AVL Tree Double Rotations (LL, RR, LR, RL), BST Search & Delete, Min Heap Creation',
-                'Module 2: Linked Lists (8M / 16%) — Singly Linked List Reversal, Polynomial Addition using Linked List',
-                'Module 5: Graphs (6M / 12%) — Graph Traversals (DFS/BFS), Minimum Spanning Tree'
+                'Module 4: Trees (20M / 40%) — Threaded Binary Tree Insertions & Rationale, BST Multi-Node Insertion & Deletion, Binary Tree Reconstruction (In+Pre / In+Post), Left Child-Right Sibling Representation',
+                'Module 1: Fundamentals (12M / 24%) — Dynamic Array Set Operations (BuildSet, SearchSet, Union), Student Nested Structure with Date Pointers, Recursive BinSearch & Array Sum',
+                'Module 3: Stacks & Queues (7M / 14%) — Task Priority Queue (enqueueTaskWithPriority, executeHighestPriorityTask), Stack Prefix-to-Postfix Conversion, I/O Interrupt Queue Handling',
+                'Module 5: Graphs (6M / 12%) — Graph BFS & DFS Traversal Paths, Adjacency Matrix with In-Degree & Out-Degree',
+                'Module 2: Linked Lists (5M / 10%) — Doubly Linked List Character Palindrome Check, Circular Singly Linked List with Header Node (InsertLast)'
               ],
             },
             {
@@ -167,11 +167,11 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               pageCount: 4,
               dateHeld: '05-Dec-2023',
               topicsCovered: [
-                'Module 5: Graphs (14M / 28%) — Road Network Cost Optimization, Prim/Kruskal Minimum Spanning Tree, Dijkstra Algorithm',
-                'Module 4: Trees (14M / 28%) — Expression Tree Construction, Binary Search Tree Traversals, Threaded Trees',
-                'Module 3: Stacks & Queues (10M / 20%) — Queue using Stacks, Circular Queue Operations, Infix Expression Evaluation',
-                'Module 2: Linked Lists (6M / 12%) — Linked List Representation & Operations, Dynamic Nodes',
-                'Module 1: Fundamentals (6M / 12%) — Dynamic Memory Allocation, Recursive Search'
+                'Module 4: Trees & B-Trees (23M / 46%) — B-Tree (Order 4) Insertion & Deletion with Reflow State, Heap Sort on Dataset, Binary Tree Reconstruction (Pre+In), Expression Trees',
+                'Module 1: Fundamentals & Recursion (10M / 20%) — Towers of Hanoi Recursion Tree (4 Disks), Merge Sort Pseudocode & Trace, Recursive Fibonacci Function',
+                'Module 3: Stacks & Queues (10M / 20%) — Infix to Polish (Prefix) Expression Stack Conversion, Circular Queue Enqueue/Dequeue, Prefix/Postfix Evaluation',
+                'Module 5: Graphs (5M / 10%) — Minimum Spanning Tree using Kruskal Algorithm for Road Network Cost Optimization',
+                'Module 2: Linked Lists (2M / 4%) — Singly vs Doubly Linked List Architecture & Traversal Comparison'
               ],
             },
             {
@@ -189,11 +189,11 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               pageCount: 3,
               dateHeld: '30-Nov-2023',
               topicsCovered: [
-                'Module 3: Stacks & Queues (14M / 28%) — Circular Queue Array, Infix to Postfix Algorithm, Multiple Stacks',
-                'Module 4: Trees (14M / 28%) — Binary Tree Reconstruction from Traversals, BST Operations, Threaded Binary Trees',
-                'Module 2: Linked Lists (8M / 16%) — Singly Linked List Insertion & Deletion, Header Nodes',
-                'Module 1: Fundamentals (8M / 16%) — Sparse Matrix Representation, Pointers & Recursion',
-                'Module 5: Graphs (6M / 12%) — Adjacency Matrix vs Adjacency List, DFS/BFS Graph Search'
+                'Module 4: Trees (15M / 30%) — BST Construction & Preorder/Inorder/Postorder, Expression Tree Construction (Infix & Prefix), Height vs Depth Distinctions, Binary Tree Copy',
+                'Module 3: Stacks & Queues (15M / 30%) — Priority Queue using Circular Doubly Linked List, Iterative Postfix Evaluation using Stack, Two Stacks in Single Array',
+                'Module 1: Fundamentals (10M / 20%) — Puzzle Board Sparse Matrix using Singly Linked List (CRUD), Dynamic Array Malloc Pointer Multiplication, Recursive Integer Reverse',
+                'Module 2: Linked Lists (5M / 10%) — Singly Linked List Element Frequency Count (SLlist_count) & Search (SLlist_find), Vector Addition using SLL',
+                'Module 5: Graphs (5M / 10%) — Adjacency Matrix & Adjacency List Multi-Representation, Depth First Search (DFS) Traversal'
               ],
             },
             {
@@ -211,11 +211,11 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               pageCount: 3,
               dateHeld: '20-Jan-2023',
               topicsCovered: [
-                'Module 2: Linked Lists (14M / 28%) — Doubly Linked List Polynomial Difference & Evaluation, Circular Linked List',
-                'Module 4: Trees (14M / 28%) — Binary Search Tree Construction, Threaded Memory Representation, Traversals',
-                'Module 1: Fundamentals (8M / 16%) — Recursive Array Sum & Time Complexity Analysis, Dynamic Memory',
-                'Module 3: Stacks & Queues (8M / 16%) — Stack Balanced Parentheses Applications, Queue Operations',
-                'Module 5: Graphs (6M / 12%) — Graph Traversal Algorithms, Spanning Trees'
+                'Module 4: Trees & Heaps (18M / 36%) — Threaded Binary Tree Types & Morris Traversal, Heap Sort in Descending Order, BST Threaded Memory Representation, Mirror Tree Validation',
+                'Module 2: Linked Lists (13M / 26%) — Doubly Linked List Polynomial Subtraction & Evaluation, Circular Linked List Reverse Links & Node Distance, String Linked List',
+                'Module 3: Stacks & Queues (9M / 18%) — Movie Theater Multi-Queue Load Balancing, Stack Push & Pop using Singly Linked List, Stack DFS Application',
+                'Module 1: Fundamentals (7M / 14%) — Sparse Matrix Multiplication & Normal Transpose, Recursive Array Sum with Time Complexity, Unique Elements in Array',
+                'Module 5: Graphs (3M / 6%) — Graph DFS Traversal Tracing from Adjacency Matrix with Source Node A'
               ],
             }
           ]
@@ -239,11 +239,11 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               pageCount: 3,
               dateHeld: '08-Dec-2022',
               topicsCovered: [
-                'Module 2: Linked Lists (14M / 28%) — Singly Linked List Creation & Reversal after N/2-th Node, Doubly Linked List',
-                'Module 4: Trees (14M / 28%) — Min Heap Construction Step-by-Step, Binary Search Tree Traversals',
-                'Module 1: Fundamentals (8M / 16%) — Tabular Method Step Count & Time Complexity Analysis, Sparse Matrix',
-                'Module 3: Stacks & Queues (8M / 16%) — Infix to Postfix Conversion, Stack Expression Evaluation',
-                'Module 5: Graphs (6M / 12%) — Graph Adjacency Representation, Breadth First Search (BFS)'
+                'Module 4: Trees & Heaps (20M / 40%) — Max & Min Heap Construction & Heapification Tracing, BST Traversal Construction, Expression Tree Evaluation, Binary Tree Merging & Copy',
+                'Module 1: Fundamentals & Matrices (10M / 20%) — Sparse Matrix Addition & Multiplication, Book Inventory Structure/Class, Tabular Step Count Time Complexity, Matrix Multiplication',
+                'Module 2: Linked Lists (10M / 20%) — Singly Linked List Reversal after (N/2)-th Node, Circular Singly Linked List Duplicate Detection & Counter-Clockwise Shift',
+                'Module 3: Stacks & Queues (7M / 14%) — Multiple Stacks of Variable Sizes in Single Array, Infix to Postfix Conversion Stack Operations',
+                'Module 5: Graphs (3M / 6%) — Graph Representation & Depth First Search (DFS) Traversal Counting Odd Nodes'
               ],
             }
           ]
