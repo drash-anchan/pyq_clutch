@@ -32,7 +32,7 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
           papers: [
             {
               id: 'ds-2025-regular',
-              title: 'Data Structures 2025 Regular (Nov 2025)',
+              title: 'Data Structures 2025',
               subjectId: 'data-structures',
               subjectName: 'Data Structures',
               subjectCode: 'CSS 2101',
@@ -54,7 +54,7 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
             },
             {
               id: 'ds-2025-makeup',
-              title: 'Data Structures 2025 Regular (Jan 2026)',
+              title: 'Data Structures 2025',
               subjectId: 'data-structures',
               subjectName: 'Data Structures',
               subjectCode: 'CSS 2101',
