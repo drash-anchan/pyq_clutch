@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { getLenis } from '../../animations/lenis';
 import { Archive, Github, Search, Menu, X, ExternalLink, Sun, Moon, Laptop } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { ThemeToggle } from '../common/ThemeToggle';
@@ -9,6 +10,7 @@ export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const { preference, setPreference } = useTheme();
 
   useEffect(() => {
@@ -22,6 +24,25 @@ export const Navbar: React.FC = () => {
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
+
+  const handleContributeClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+
+    if (location.pathname === '/') {
+      const el = document.getElementById('contribute');
+      if (el) {
+        const lenis = getLenis();
+        if (lenis) {
+          lenis.scrollTo(el, { offset: -90 });
+        } else {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    } else {
+      navigate('/#contribute');
+    }
+  };
 
   const isArchivePage = location.pathname.includes('/semester-3/endsem');
 
@@ -76,14 +97,9 @@ export const Navbar: React.FC = () => {
           </Link>
 
           <a
-            href="#contribute"
-            onClick={(e) => {
-              if (location.pathname === '/') {
-                e.preventDefault();
-                document.getElementById('contribute')?.scrollIntoView({ behavior: 'smooth' });
-              }
-            }}
-            className="text-sand-700 dark:text-sand-400 hover:text-black dark:hover:text-white transition-colors"
+            href="/#contribute"
+            onClick={handleContributeClick}
+            className="text-sand-700 dark:text-sand-400 hover:text-black dark:hover:text-white transition-colors cursor-pointer"
           >
             Contribute PR
           </a>
@@ -144,6 +160,14 @@ export const Navbar: React.FC = () => {
           >
             Endsem Archive (33 Papers)
           </Link>
+
+          <a
+            href="/#contribute"
+            onClick={handleContributeClick}
+            className="block py-2 text-sand-700 dark:text-sand-300 hover:text-black dark:hover:text-white cursor-pointer"
+          >
+            Contribute PR
+          </a>
 
           <a
             href={ARCHIVE_METADATA.githubUrl}

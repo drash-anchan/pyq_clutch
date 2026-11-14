@@ -1,9 +1,29 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { getLenis } from '../../animations/lenis';
 import { Github, ExternalLink } from 'lucide-react';
 import { ARCHIVE_METADATA } from '../../data/pyqs';
 
 export const Footer: React.FC = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleContributeClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (location.pathname === '/') {
+      const el = document.getElementById('contribute');
+      if (el) {
+        const lenis = getLenis();
+        if (lenis) {
+          lenis.scrollTo(el, { offset: -90 });
+        } else {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    } else {
+      navigate('/#contribute');
+    }
+  };
   return (
     <footer className="border-t border-black/10 dark:border-white/10 bg-[#FAF8F5] dark:bg-[#08090C] py-16 font-mono text-xs select-none">
       <div className="max-w-6xl mx-auto px-6 sm:px-8 space-y-12">
@@ -36,7 +56,11 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <a href="#contribute" className="text-sand-800 dark:text-sand-300 hover:text-black dark:hover:text-white transition-colors">
+                <a
+                  href="/#contribute"
+                  onClick={handleContributeClick}
+                  className="text-sand-800 dark:text-sand-300 hover:text-black dark:hover:text-white transition-colors cursor-pointer"
+                >
                   Contribute via PR
                 </a>
               </li>

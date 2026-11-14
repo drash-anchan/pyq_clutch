@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, BookOpen, Layers, CheckCircle2, Search, X, Sparkles } from 'lucide-react';
 import { getArchiveSubjects, getArchiveStats } from '../data/archiveData';
 import { SpotlightCard } from '../components/common/SpotlightCard';
@@ -10,6 +10,7 @@ export const EndsemArchivePage: React.FC = () => {
   const stats = getArchiveStats();
   const { isDark } = useTheme();
   const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
 
   const [query, setQuery] = useState(searchParams.get('q') || '');
 
@@ -241,12 +242,14 @@ export const EndsemArchivePage: React.FC = () => {
             <span>Looking for missing question papers or makeup exam variants?</span>
           </div>
           <a
-            href="https://github.com/drash-anchan"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-black dark:text-white font-bold hover:underline shrink-0"
+            href="/#contribute"
+            onClick={(e) => {
+              e.preventDefault();
+              navigate('/#contribute');
+            }}
+            className="text-black dark:text-white font-bold hover:underline shrink-0 cursor-pointer"
           >
-            Contribute on GitHub ↗
+            Contribute via PR ↗
           </a>
         </div>
 
