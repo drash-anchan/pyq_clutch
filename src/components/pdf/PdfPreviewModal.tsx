@@ -8,7 +8,6 @@ import {
   ShieldCheck, 
   FileText, 
   Calendar,
-  Layers,
   Eye
 } from 'lucide-react';
 import { ArchivePaper } from '../../types';

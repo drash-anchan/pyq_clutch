@@ -25,7 +25,7 @@ export interface ArchivePaper {
   dateHeld?: string;
   event?: string;
   topicsCovered: string[];
-  sampleQuestions: string[];
+  sampleQuestions?: string[];
 }
 
 export interface ArchiveYear {
