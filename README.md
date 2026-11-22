@@ -251,15 +251,15 @@ We welcome contributions from MIT Manipal students and alumni! See [CONTRIBUTING
 <!-- ANALYTICS:START -->
 | Metric | All-Time Total |
 |---|---:|
-| **Unique Visitors** | 1,288 |
-| **Total Pageviews** | 5,539 |
-| **PDF Preview Views** | 6,370 |
-| **PDF Downloads** | 3,705 |
+| **Unique Visitors** | 1,305 |
+| **Total Pageviews** | 5,812 |
+| **PDF Preview Views** | 6,600 |
+| **PDF Downloads** | 3,822 |
 | **GitHub Contributor Clicks** | 6 |
 | **Email Submission Clicks** | 3 |
-| **Subject Explorations** | 7,913 |
+| **Subject Explorations** | 8,310 |
 
-*Last synchronized via PostHog on 2026-11-21 UTC • All-time cumulative telemetry • Updated daily by GitHub Actions.*
+*Last synchronized via PostHog on 2026-11-22 UTC • All-time cumulative telemetry • Updated daily by GitHub Actions.*
 <!-- ANALYTICS:END -->
 
 ###  Analytics Philosophy & Security
