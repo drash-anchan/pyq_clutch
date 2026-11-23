@@ -459,11 +459,11 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               pageCount: 3,
               dateHeld: '29-Nov-2025',
               topicsCovered: [
-                'Module 1: Combinational Logic (CO1 - 10M / 20%) — 5-Variable K-Map Minimization, Carry Lookahead Adder',
-                'Module 2: Sequential Logic (CO2 - 10M / 20%) — Synchronous Modulo Counter Design, Flip-Flop Conversion, Shift Registers',
-                'Module 3: Multiplication & CPU (CO3 - 10M / 20%) — 4x4 Booth Multiplier Algorithm, State Diagram & Controller Logic, Addressing Modes',
-                'Module 4: Memory System (CO4 - 10M / 20%) — Cache Memory Direct vs Set Associative Mapping, Virtual Memory TLB',
-                'Module 5: Pipelining & I/O (CO5 - 10M / 20%) — Instruction Pipelining Data Hazards, Branch Penalties, Interrupts & DMA'
+                'Module 3: Computer Arithmetic & Control Design (CO3 - 19M / 38% — Highest Weightage!) — Booth Algorithm (13 x -6), IEEE 754 32-bit Floating-Point Addition (86.625 + 10.125), Wilkes Microprogrammed Control Decoder, 4x4 Booth Multiplier RTL & Logic Controller (Sequence Register, Decoder, Counter), Data Path Control Points',
+                'Module 2: Sequential Circuits & Counters (CO2 - 10M / 20%) — State Diagram Synchronous Circuit Design using JK Flip-Flops, 4-Bit Asynchronous Ripple Counter, Behavioral Verilog 8-Bit Ring Counter',
+                'Module 4: Memory System & Pipelining (CO4 - 8M / 16%) — Cache Memory Address Tag Fields (Direct, Associative, 16-Way Set Associative), 5-Stage Instruction Pipelining Block Diagram',
+                'Module 5: Instruction Set Architecture (CO5 - 7M / 14%) — RISC vs CISC Architecture & CISC Dot Product Program, Byte vs Word Memory Addressing',
+                'Module 1: Combinational Logic (CO1 - 6M / 12%) — NOR-Only Logic Minimization, 3-Bit Magnitude Comparator Design, Programmable Logic Array (PLA) Realization'
               ]
             }
           ]
@@ -487,11 +487,10 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               pageCount: 3,
               dateHeld: '05-Jan-2024',
               topicsCovered: [
-                'Module 3: Control Unit (10M) — Hardwired vs Microprogrammed Control Unit, Microinstruction Sequencing',
-                'Module 5: I/O Organization (10M) — Interrupt Vector Handling, Direct Memory Access (DMA) Transfer Cycles',
-                'Module 4: Virtual Memory (10M) — Virtual Memory Page Tables, Translation Lookaside Buffer (TLB)',
-                'Module 3: CPU Architecture (10M) — Addressing Modes, Instruction Format & Execution Cycle',
-                'Module 4: Cache Memory (10M) — Cache Miss Penalties, Replacement Policies (LRU, FIFO)'
+                'Module 3: Computer Arithmetic & Control Unit (18M / 36%) — Non-Restoring Division (14/3), IEEE 754 Floating-Point Multiplication & Representation, 2\'s Complement Addition/Subtraction Overflow, Controller State Diagram with Counter/Decoder/PLA, One-Bus vs Three-Bus Clock Cycle Analysis',
+                'Module 4: Memory System & Cache Architecture (15M / 30%) — 2Gx32 Memory Module Design from 256x8 SRAM Chips, 4-Way Set Associative Cache Address Fields (Tag, Set, Word), Write-Buffer Optimization for Write-Through and Write-Back',
+                'Module 4: Secondary Storage, I/O & Multiprocessing (12M / 24%) — Shared-Memory Cache Coherence & Write-Back Protocol, Hard Disk Controller Latency & Transfer Rate (360 RPM), Vectored Interrupts, Memory-Mapped vs Isolated I/O, Processor-GPU Coordination',
+                'Module 5: Instruction Set Architecture (5M / 10%) — RISC-Style Assembly Program for Minimum Element in Array/List, Register Addressing & Memory Pointers'
               ]
             },
             {
@@ -509,11 +508,11 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               pageCount: 3,
               dateHeld: '12-Jan-2024',
               topicsCovered: [
-                'Module 1: Minimization (10M) — Quine-McCluskey (Tabular) Minimization Method with Prime Implicant Table',
-                'Module 2: State Machines (10M) — Mealy vs Moore Finite State Machine Design & State Reduction',
-                'Module 1: MSI Devices (10M) — Priority Encoder Logic, Decoder Tree Expansion',
-                'Module 2: Counters & Registers (10M) — Johnson & Ring Counter Timing, Universal Shift Register',
-                'Module 1: Programmable Logic (10M) — FPGA Architecture Basics, PAL vs PLA Implementation'
+                'Module 2: Synchronous Sequential Circuits & State Machines (15M / 30%) — State Diagram Synthesis using T Flip-Flops, State Table Reduction & State Diagram Derivation, FSM Sequence Detector (Second Occurrence of w=1)',
+                'Module 2: Counters & Shift Registers (10M / 20%) — Synchronous Repeated Counter (0 to 6) with Self-Correction using JK Flip-Flops, 8-Signal Johnson Counter with AND Decoding, 5-Bit Ring Counter using D Flip-Flops',
+                'Module 3: Processor Control Unit & Datapath (10M / 20%) — Multi-Register Processor Control Unit (Timing & Control Signal Expressions, Tri-State Bus), ASM Chart for Bit-Counting Circuit',
+                'Module 1: Combinational Logic & Arithmetic Circuits (9M / 18%) — Hierarchical 40-Bit Carry Lookahead Adder (8-Bit Blocks & Delay), SOP vs POS Realization & Cost Comparison, 3-to-8 Decoder with OR Gate Implementation',
+                'Module 1: Latches, Flip-Flops & CMOS Logic (6M / 12%) — Positive Edge-Triggered D Flip-Flop using NAND Gates, Master-Slave JK Pulse Width Solution, Basic RS Latch using NOR Gates, CMOS NOR Transistor Circuit'
               ]
             },
             {
@@ -531,11 +530,10 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               pageCount: 3,
               dateHeld: '10-Jan-2024',
               topicsCovered: [
-                'Module 3: ALU Design (10M) — Arithmetic Logic Unit 4-bit Design, Function Select Bits',
-                'Module 3: Timing & Control (10M) — Instruction Cycle Sub-phases, Bus Timing Diagrams',
-                'Module 4: Cache Writing (10M) — Cache Write-Through vs Write-Back Policies, Cache Coherence',
-                'Module 1: Logic Realization (10M) — Multiplexer Tree Realization of Boolean Functions',
-                'Module 5: Memory Interconnect (10M) — Synchronous vs Asynchronous Memory Bus Protocols'
+                'Module 1: Combinational Logic & Arithmetic Circuits (18M / 36%) — Conditional Adder/Subtractor (F=Y±1) using 7483 IC & Half Adders, 8 4 -2 -1 to 8 4 2 1 Code Converter, Full Adder/Subtractor via 74153 MUX & XOR Gates, Full Adder using 2-to-4 Decoders, 1-Bit Magnitude Comparator',
+                'Module 2: Sequential Circuits & Counter Design (17M / 34%) — Synchronous Sequence Counter (0,1,2,4,6) using D Flip-Flops, Mealy Model Sequence Detector (011), Synchronous Arbitrary Counter (0,3,5,6) using JK Flip-Flops, Asynchronous Modulo Counters (2 to 6 UP Counter, 2-bit Up-Down Counter), JK from D Flip-Flop with 2:1 MUX',
+                'Module 3: Computer Arithmetic & Control Unit (8M / 16%) — Restoring Division Algorithm (8/3) with Register Trace, Microprogrammed Control Unit Design for 4x4 Booth Multiplier',
+                'Module 4: Memory System & I/O Organization (5M / 10%) — Set-Associative Cache Mapping Principles & Address Translation, Direct Memory Access (DMA) Block Transfer Technique'
               ]
             }
           ]
@@ -559,11 +557,10 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               pageCount: 3,
               dateHeld: '30-Nov-2023',
               topicsCovered: [
-                'Module 3: Arithmetic (10M) — IEEE 754 Single & Double Precision Floating Point Representation',
-                'Module 5: Pipelining (10M) — Instruction Pipelining Hazards (RAW, WAR, WAW) & Branch Prediction',
-                'Module 3: Control Unit (10M) — Microprogram Sequencer & Control Memory Addressing',
-                'Module 5: Parallelism (10M) — Vector Processing Concepts, Array Processors',
-                'Module 5: Bus Arbitration (10M) — Centralized vs Distributed Bus Arbitration Schemes'
+                'Module 3: Computer Arithmetic & Control Unit (18M / 36%) — Binary Listing of Microprogrammed Control Unit, Booth\'s Multiplication Algorithm (33 x -23 in 7-bit 2\'s complement), Restoring Division Algorithm (7 / 4), Signed Integer Arithmetic & 5-bit Overflow Detection, Two-Bus vs Three-Bus Processor Architecture Clock Cycles',
+                'Module 4: Storage, I/O & Multiprocessing (13M / 26%) — DMA Controller Architecture & Data Transfer Protocol, Disk Controller Track Capacity & Transfer Rate at 6400 RPM, Shared Memory Multiprocessors (UMA vs NUMA), Coarse vs Fine-Grained Multithreading',
+                'Module 4: Memory System & Cache Architecture (12M / 24%) — Block Set-Associative Cache Organization & Address Fields (Tag, Set, Word), 1K x 8 Memory Module Bit-Cell Design & Address Lines, Average Cache Access Time with Read/Write Miss Penalties',
+                'Module 5: Instruction Set Architecture & Pipelining (7M / 14%) — RISC-Style Linear Search Program using Indexed Addressing Mode, 5-Stage Instruction Pipelining Block Diagram & Concepts'
               ]
             },
             {
@@ -581,11 +578,10 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               pageCount: 3,
               dateHeld: '07-Dec-2023',
               topicsCovered: [
-                'Module 1: Hazards (10M) — Static & Dynamic Hazard Detection and Hazard-Free Circuit Design',
-                'Module 2: State Reduction (10M) — State Table Minimization using Implication Chart Method',
-                'Module 2: Flip-Flops (10M) — Master-Slave JK Flip-Flop Race-Around Condition Solution',
-                'Module 1: Arithmetic Circuits (10M) — 4-bit Magnitude Comparator Design & Cascading',
-                'Module 1: PLDs (10M) — Programmable Logic Arrays (PLA) & Programmable Array Logic (PAL)'
+                'Module 2: Synchronous Sequential Circuits & State Machines (16M / 32%) — State Diagram Synthesis using JK Flip-Flops, State Table Reduction & Equivalence, Moore vs Mealy FSM Models, SR Latch using NAND Gates, JK from D Flip-Flop Conversion',
+                'Module 1: Combinational Logic & Arithmetic Circuits (12M / 24%) — 4-Bit Combinational Adder/Subtractor Circuit, Functional Decomposition for Minimization, Boolean Function Realization via Decoder and 2:1 MUX, CMOS NAND Transistor Implementation',
+                'Module 2: Counters & Shift Registers (10M / 20%) — Synchronous Self-Correcting Counter (0,1,2,4,6) using D Flip-Flops, 3-Bit Johnson Counter using T Flip-Flops, 4-Bit Ring Counter using D Flip-Flops',
+                'Module 3: Processor Datapath & Control Logic (10M / 20%) — 4-Bit 4-Register Common Bus System using Multiplexers, Two-Register Swapping Controller & Tri-State Bus Architecture'
               ]
             },
             {
@@ -603,11 +599,10 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               pageCount: 3,
               dateHeld: '05-Dec-2023',
               topicsCovered: [
-                'Module 1: Decoders (10M) — 3-to-8 Decoder Cascading to 4-to-16 Decoder with Enable',
-                'Module 2: Counters (10M) — Synchronous Binary Up/Down Counter Design using T Flip-Flops',
-                'Module 5: Pipelining (10M) — Read-After-Write (RAW) Data Hazards & Forwarding Solutions',
-                'Module 4: Memory Interleaving (10M) — High-Order vs Low-Order Memory Interleaving',
-                'Module 3: Architecture (10M) — RISC vs CISC Architecture Feature Comparison'
+                'Module 1: Combinational Circuits & Converters (18M / 36%) — 4-Bit Parallel Adder with Carry Lookahead Adder (CLA), 8 4 2 1 BCD to Gray Code Converter using NAND Gates, 16-to-1 Multiplexer from 2-to-1 MUX Tree, Full Adder using 3-to-8 Decoder, 4-bit by 3-bit Array Multiplier',
+                'Module 2: Sequential Circuits & Counter Design (17M / 34%) — 3-Bit Gray Code Synchronous DOWN Counter using JK Flip-Flops, Mealy Model Sequence Detector (Three Consecutive 1s), Synchronous Sequence Counter (0-3-2-1) using T Flip-Flops, Asynchronous Modulo DOWN Counter (6 to 2), Frequency Division & JK to D Conversion',
+                'Module 3: Computer Arithmetic & Processor Datapath (13M / 26%) — Booth\'s Multiplication Algorithm (-7 x 3) with Step-by-Step Flowchart, Single-Bus vs Two-Bus vs Three-Bus RALU Architecture, Arithmetic Logic Unit (ALU) Operations & Flag Generation',
+                'Module 4: I/O Organization & Interrupts (2M / 4%) — Daisy Chain Priority Interrupt Polling Protocol & Vector Generation'
               ]
             },
             {
@@ -625,11 +620,10 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               pageCount: 3,
               dateHeld: '23-Jan-2023',
               topicsCovered: [
-                'Module 2: Shift Registers (10M) — Parallel-In Parallel-Out (PIPO) & Serial-In Serial-Out (SISO)',
-                'Module 1: Logic Optimization (10M) — Combinational Circuit Design using NAND/NOR Universal Gates',
-                'Module 4: Cache Mapping (10M) — Direct Mapping, Fully Associative & 2-Way Set Associative',
-                'Module 5: I/O Interfaces (10M) — Programmed I/O, Interrupt-Driven I/O & DMA',
-                'Module 3: Instruction Formats (10M) — 3-Address, 2-Address, 1-Address & 0-Address Instruction Formats'
+                'Module 2: Sequential Circuits & Counter Design (20M / 40%) — Sequence Detector FSM (\'1011\' Overlapping) using JK Flip-Flops, Self-Correcting BCD 8421 Synchronous Counter using T Flip-Flops, 8-State Johnson Counter Sequence Generator (00011001), 4-Bit Asynchronous Up/Down Counter with 2:1 MUX, Hexadecimal Counter (23H to 56H), D Flip-Flop NAND Latch',
+                'Module 3: Computer Arithmetic & Control Unit (15M / 30%) — Booth\'s Multiplication Algorithm Flowchart & Trace (15 x 7), Microprogrammed Control Unit Architecture, Booth vs Add-and-Shift Performance Comparison, 3-Bit Binary Multiplier via 7483 ICs, Carry Save Addition vs Carry Propagation Speed Analysis',
+                'Module 4: Cache Memory & I/O Systems (8M / 16%) — Three Cache Mapping Architectures (Direct, Associative, Set-Associative), Direct Memory Access (DMA) Transfer Modes (Burst, Cycle Stealing, Transparent)',
+                'Module 1: Combinational Logic & Decoders (7M / 14%) — Gray Code to Excess-3 Code Converter using 3-to-8 Decoders, 2-Bit Magnitude Comparator (A >= B) using Logic Gates'
               ]
             }
           ]
@@ -653,11 +647,10 @@ export const CENTRALIZED_ARCHIVE: CentralizedArchive = {
               pageCount: 3,
               dateHeld: '13-Dec-2022',
               topicsCovered: [
-                'Module 1: Boolean Algebra (10M) — Boolean Function Simplification using K-Map & Don’t Care Conditions',
-                'Module 1: Arithmetic Logic (10M) — Full Adder and Full Subtractor Design from Half Adders',
-                'Module 2: Flip-Flops (10M) — Flip-Flop Conversion (D to T, SR to JK) with Excitation Tables',
-                'Module 4: Memory System (10M) — Main Memory Organization, RAM/ROM Chip Interfacing',
-                'Module 3: Addressing Modes (10M) — Immediate, Direct, Indirect, Register & Indexed Addressing Modes'
+                'Module 2: Sequential Circuits & Counter Design (18M / 36%) — Reversible Synchronous Counter (1-3-2-5-4-1) with Mode Control Y using T Flip-Flops, Sequence Detector FSM (\'1001\' Overlapping) using JK Flip-Flops, 5-State Ring Counter Sequence Generator (01011), Asynchronous Modulo Counters (2 to 6 Counter, 00 to 86 Decade Counter IC), T Flip-Flop NOR Latch',
+                'Module 1: Combinational Logic & Arithmetic Circuits (16M / 32%) — Carry Propagation vs Carry Lookahead vs Carry Save Adder (Adding 4 Binary Numbers), 8 4 2 1 BCD to Gray Code Converter, 4:2 Priority Encoder Circuit, 4-Bit Equality Comparator, 4-Bit Barrel Combinational Shifter',
+                'Module 3: Computer Arithmetic & Control Unit (8M / 16%) — Hardwired vs Microprogrammed Control Unit Comparison (Merits & Demerits), Non-Restoring Division Algorithm (10101 / 110)',
+                'Module 4: Cache Memory & Interrupt Handling (8M / 16%) — Cache Tag Field Calculations (Direct, Associative, 4-Way Set Associative), Multiple Interrupt Handling Techniques (Vectored, Daisy Chain, Polling)'
               ]
             }
           ]
